@@ -1,1 +1,27 @@
 <h1>This is author's index page</h1>
+
+<% @authors.each do |author| %>
+  <table>
+    <thead>
+      <tr>
+        <th>First name</th>
+        <th>Second name</th>
+        <th>Date of birth</th>
+        <th>Wikipedia url</th>
+        <th>Doodreads url</th>
+        <th>User ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= author.first_name %></td>
+        <td><%= author.last_name %></td>
+        <td><%= author.date_of_birth %></td>
+        <td><%= author.wikipedia_url %></td>
+        <td><%= author.goodreads_url %></td>
+        <td><%= author.user_id %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%end%>
+  

@@ -1,0 +1,18 @@
+<%= form_with(model: @author, local:true) do |f| %>
+  <%= f.label :first_name %><br>
+  <%= f.text_field :first_name %><br>
+
+  <%= f.label :last_name %><br>
+  <%= f.text_field :last_name %><br>
+
+  <%= f.label :date_of_birth %><br>
+  <%= f.text_field :date_of_birth %><br>
+
+  <%= f.label :wikipedia_url %><br>
+  <%= f.text_field :wikipedia_url %><br>
+
+  <%= f.label :goodreads_url %><br>
+  <%= f.text_field :goodreads_url %><br>
+
+  <%= f.submit %>
+<% end %>
