@@ -10,6 +10,7 @@
         <th>Wikipedia url</th>
         <th>Doodreads url</th>
         <th>User ID</th>
+        <th colspan="3">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,9 @@
         <td><%= author.wikipedia_url %></td>
         <td><%= author.goodreads_url %></td>
         <td><%= author.user_id %></td>
+        <td><%= link_to "Show", author_path(author) %></td>
+        <td><%= link_to "Edit", edit_author_path(author) %></td>
+        <td><%= link_to "Delete", author_path(author), method: :delete, data: { confirm: "Are you sure?" }%></td>
       </tr>
     </tbody>
   </table>

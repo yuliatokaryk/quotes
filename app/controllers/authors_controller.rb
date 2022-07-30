@@ -1,19 +1,22 @@
 class AuthorsController < ApplicationController
-
-  def show
-    @author = Author.find(params[:id])
-  end
+  before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   def index
     @authors = Author.all
+  end
+
+  def show
   end
 
   def new
     @author = Author.new
   end
 
+  def edit
+  end
+
   def create
-    @author = Author.new(params.require(:author).permit(:first_name, :socond_name, :date_of_birth, :wikipedia_url, :goodreads_url))
+    @author = Author.new(author_params)
     @author.user = current_user
     if @author.save
       flash[:notice] = "Author was saved"
@@ -23,14 +26,8 @@ class AuthorsController < ApplicationController
     end
   end
 
-  def edit
-    @author = Author.find(params[:id])
-    @user = current_user
-  end
-
   def update
-    @author = Author.find(params[:id])
-    if @author.update(params.require(:author).permit(:first_name, :socond_name, :date_of_birth, :wikipedia_url, :goodreads_url))
+    if @author.update(author_params)
       flash[:notice] = "Author was updated"
       redirect_to @author
     else
@@ -39,6 +36,17 @@ class AuthorsController < ApplicationController
   end
 
   def destroy
+    @author.destroy
+    redirect_to authors_path
   end
 
+  private
+
+  def set_author
+    @author = Author.find(params[:id])
+  end
+
+  def author_params
+    params.require(:author).permit(:first_name, :last_name, :date_of_birth, :wikipedia_url, :goodreads_url)
+  end
 end
