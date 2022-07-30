@@ -23,11 +23,13 @@ class AuthorsController < ApplicationController
     end
   end
 
-
   def edit
+    @author = Author.find(params[:id])
+    @user = current_user
   end
 
   def update
+    @author = Author.find(params[:id])
     if @author.update(params.require(:author).permit(:first_name, :socond_name, :date_of_birth, :wikipedia_url, :goodreads_url))
       flash[:notice] = "Author was updated"
       redirect_to @author
