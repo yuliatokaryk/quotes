@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_07_30_062536) do
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "date_of_birth"
+    t.date "date_of_birth"
     t.string "wikipedia_url"
     t.string "goodreads_url"
     t.bigint "user_id"
