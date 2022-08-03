@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :authors
   has_many :books
+  has_many :quotes
 end

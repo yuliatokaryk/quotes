@@ -23,3 +23,9 @@ end
               author_id: Author.pluck(:id).sample,
               user_id: User.pluck(:id).sample)
 end
+
+5.times do 
+  Quote.create(content:Faker::Lorem.paragraph_by_chars(number: 100),
+              book_id: Book.pluck(:id).sample,
+              user_id: User.pluck(:id).sample)
+end
