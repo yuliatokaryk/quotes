@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([{email: 'user_1@quotes.come', encrypted_password: 'user_1'},
-                    {email: 'user_2@quotes.come', encrypted_password: 'user_2'},
-                    {email: 'user_3@quotes.come', encrypted_password: 'user_3'}])
+users = User.create([{email: 'user_1@quotes.come', encrypted_password: 'user_1', password_confirmation: 'user_1'},
+                    {email: 'user_2@quotes.come', encrypted_password: 'user_2', password_confirmation: 'user_2'},
+                    {email: 'user_3@quotes.come', encrypted_password: 'user_3'}, password_confirmation: 'user_3'])
 
 10.times do 
   Author.create(first_name:Faker::Name.first_name,
@@ -16,7 +16,7 @@ users = User.create([{email: 'user_1@quotes.come', encrypted_password: 'user_1'}
                 date_of_birth:Faker::Date.between(from: '1500-01-01', to: '2002-01-01'),
                 wikipedia_url:Faker::Internet.url,
                 goodreads_url:Faker::Internet.url,
-                user_id:Faker::Number.between(from: 1, to: User.all.count))
+                user_id: User.pluck(:id).sample)
 end
 
 30.times do 
@@ -29,7 +29,7 @@ end
 end
 
 120.times do 
-  Quote.create(content:Faker::Lorem.paragraph_by_chars(number: 100),
-              book_id: Book.pluck(:id).sample,
-              user_id: User.pluck(:id).sample)
+  Quote.create(content:Faker::Lorem.paragraph,
+               book_id: Book.pluck(:id).sample,
+               user_id: User.pluck(:id).sample)
 end
