@@ -11,7 +11,7 @@
   <%= f.label :goodreads_url %><br>
   <%= f.text_field :goodreads_url %><br>
         
-  <%= f.label :author_id, class: 'form-label' %><br>
+  <%= f.label :author_id %><br>
   <%= f.select :author_id, Author.all.collect {|a| [ a.first_name, a.id ] }, { include_blank: true } %><br>
         
   <%= f.submit %>

@@ -1,3 +1,3 @@
 <h1>This is quote's show page</h1>
 <h2><%= @quote.content %> </h2>
-<p><%= @quote.book.title %></p>
+<%= link_to @quote.book.title, book_path(@quote.book.id) %>
