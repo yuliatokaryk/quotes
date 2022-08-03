@@ -7,7 +7,7 @@
       <th>Year of publication</th>
       <th>Wikipedia url</th>
       <th>Goodreads url</th>
-      <th colspan="2">Author</th>
+      <th>Author</th>
       <th colspan="3">Actions</th>
     </tr>
     <% @books.each do |book| %>
@@ -16,16 +16,11 @@
       <td><%= book.year_of_publication %></td>
       <td><%= book.wikipedia_url %></td>
       <td><%= book.goodreads_url %></td>
-      <td><%= book.author.first_name %></td>
-      <td><%= book.author.last_name %></td>
+      <td><%= book.author.full_name %></td>
       <td><%= link_to "Show", book_path(book) %></td>
       <td><%= link_to "Edit", edit_book_path(book) %></td>
       <td><%= link_to "Delete", book_path(book), method: :delete, data: { confirm: "Are you sure?" }%></td>
     </tr>
     <% end %>
   </thead>
-<<<<<<< HEAD
 </table>
-=======
-</table>
->>>>>>> 42b9d2c6c0692b1f26f8ce95c181902ce715cd0f

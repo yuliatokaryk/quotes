@@ -20,6 +20,6 @@ end
               year_of_publication:Faker::Number.within(range: 500..2022),
               wikipedia_url:Faker::Internet.url,
               goodreads_url:Faker::Internet.url,
-              author_id:Faker::Number.between(from: 1, to: Author.all.count),
-              user_id:Faker::Number.between(from: 1, to: User.all.count))
+              author_id: Author.pluck(:id).sample,
+              user_id: User.pluck(:id).sample)
 end
