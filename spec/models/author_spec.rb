@@ -12,9 +12,15 @@ RSpec.describe Author, :type => :model do
       expect(subject).to be_valid
     end
 
-    it "is not valid without a first_name" do
+    it 'is not valid without a first_name' do
       subject.first_name = nil
       expect(subject).to_not be_valid
+    end
+  end
+
+  describe 'full_name' do
+    it 'returns first name and last name of the author' do
+      expect(subject.full_name).to eq("#{subject.first_name} #{subject.last_name}")
     end
   end
 end

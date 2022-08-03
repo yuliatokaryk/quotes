@@ -1,0 +1,19 @@
+<%= form_with(model: @book, local:true) do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :year_of_publication %><br>
+  <%= f.number_field :year_of_publication %><br>
+
+  <%= f.label :wikipedia_url %><br>
+  <%= f.text_field :wikipedia_url %><br>
+
+  <%= f.label :goodreads_url %><br>
+  <%= f.text_field :goodreads_url %><br>
+
+        
+  <%= f.label :author_id, class: 'form-label' %><br>
+  <%= f.select :author_id, Author.all.collect {|a| [ a.first_name, a.id ] }, { include_blank: true } %><br>
+        
+  <%= f.submit %>
+<% end %>
