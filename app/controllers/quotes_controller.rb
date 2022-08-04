@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
 
   def index   
-    @pagy, @quotes = pagy(Quote.all, items: 5)
+    @pagy, @quotes = pagy(Quote.all)
   end
 
   def show
