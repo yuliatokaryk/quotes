@@ -1,24 +1,44 @@
-# README
+# Quotes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Requirements
 
-Things you may want to cover:
+- Ruby 3.1.2
+- Rails 6.1.6
+- nodejs 16.15.0 or higher
+- yarn 1.22.18 or higher
 
-* Ruby version
+#### 1. Clone the repository
 
-* System dependencies
+```bash
+git clone git@github.com:yuliatokaryk/quotes.git
+cd quotes
+```
 
-* Configuration
+#### 2. Create .env file
 
-* Database creation
+Copy the .env.example file.
 
-* Database initialization
+```bash
+cp .env.example .env
+```
 
-* How to run the test suite
+#### 3. Install dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bundle && yarn
+```
 
-* Deployment instructions
+#### 4. Create and setup the database
 
-* ...
+```ruby
+rails db:create && rails db:migrate && rails db:seed
+```
+
+#### 5. Start the app
+
+```bash
+rails s
+bin/webpack-dev-server
+```
+
+Visit the app at http://localhost:3000
