@@ -1,5 +1,6 @@
 <h1>This is author's index page</h1>
 
+<%== pagy_nav(@pagy) %>
 <% @authors.each do |author| %>
   <table>
     <thead>
@@ -28,4 +29,4 @@
     </tbody>
   </table>
 <% end %>
-  
+<%== pagy_nav(@pagy) %>
