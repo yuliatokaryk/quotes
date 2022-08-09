@@ -1,6 +1,9 @@
-<h1>This is author's show page</h1>
-<h2><%= @author.full_name %></h2>
-<p><%= @author.date_of_birth %></p>
-<p><%= @author.wikipedia_url %></p>
-<p><%= @author.goodreads_url %></p>
-<p><%= @author.user_id %></p>
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2"><%= @author.full_name %></div>
+    <p class="text-gray-700 text-base"><%= @author.date_of_birth %></p>
+    <p class="text-gray-700 text-base"><%= @author.wikipedia_url %></p>
+    <p class="text-gray-700 text-base"><%= @author.goodreads_url %></p>
+    <p class="text-gray-700 text-base"><%= @author.user_id %></p>
+  </div>
+</div>
