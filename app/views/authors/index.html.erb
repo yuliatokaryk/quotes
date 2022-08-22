@@ -1,32 +1,70 @@
-<h1>This is author's index page</h1>
+<%== pagy_nav(@pagy) %>
 
-<%== pagy_nav(@pagy) %>
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Date of birth</th>
-      <th>Wikipedia url</th>
-      <th>Doodreads url</th>
-      <th>User ID</th>
-      <th colspan="3">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @authors.each do |author| %>
-    <tr>
-      <td><%= author.first_name %></td>
-      <td><%= author.last_name %></td>
-      <td><%= author.date_of_birth %></td>
-      <td><%= author.wikipedia_url %></td>
-      <td><%= author.goodreads_url %></td>
-      <td><%= author.user_id %></td>
-      <td><%= link_to "Show", author_path(author) %></td>
-      <td><%= link_to "Edit", edit_author_path(author) %></td>
-      <td><%= link_to "Delete", author_path(author), method: :delete, data: { confirm: "Are you sure?" }%></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-<%== pagy_nav(@pagy) %>
+<div class="flex flex-col">
+  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <table class="min-w-full border text-center">
+          <thead class="border-b">
+            <tr>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                First name
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                Last name
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                Date of birth
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                Wikipedia url
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                Doodreads url
+              </th>
+              <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
+                User ID
+              </th>
+              <th colspan="3" class="text-sm font-medium text-gray-900 px-6 py-4">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @authors.each do |author| %>
+              <tr class="border-b">
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                  <%= author.first_name %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                  <%= author.last_name %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                  <%= author.date_of_birth %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                  <%= author.wikipedia_url %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                  <%= author.goodreads_url %>
+                </td>
+                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r">
+                  <%= author.user_id %>
+                </td>
+                <td>
+                  <%= link_to "Show", author_path(author), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                </td>
+                <td>
+                  <%= link_to "Edit", edit_author_path(author), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                </td>
+                <td> 
+                  <%= link_to "Delete", author_path(author), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
