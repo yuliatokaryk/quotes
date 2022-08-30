@@ -1,5 +1,12 @@
-<div class="w-full max-w-xs">
+<% if @profile.errors.any? %>
+<ul>
+  <% @profile.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
 
+<div class="w-full max-w-xs">
     <%= form_with(model: @profile, url: profile_path, local:true) do |f| %>
       <div class="mb-4">
         <%= f.label :first_name, class: "block text-gray-700 text-sm font-bold mb-2" %><br>
@@ -25,5 +32,4 @@
         <%= f.submit :submit, class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       </div>
     <% end %>
-
 </div>

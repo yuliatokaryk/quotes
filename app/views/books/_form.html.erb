@@ -1,3 +1,11 @@
+<% if @book.errors.any? %>
+<ul>
+  <% @book.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
 <div class="w-full max-w-xs">
   <%= form_with(model: @book, local:true) do |f| %>
     <div class="mb-4">
