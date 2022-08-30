@@ -1,3 +1,13 @@
+<% if @author.errors.any? %>
+  <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+    <ul class="list-disc">
+      <% @author.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="w-full max-w-xs">
   <%= form_with(model: @author, local:true) do |f| %>
     <div class="mb-4">
