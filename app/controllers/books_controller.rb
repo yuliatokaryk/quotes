@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_access
 
   def index   
     @pagy, @books = pagy(Book.all)
@@ -10,6 +11,7 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    authorize @book
   end
 
   def edit
@@ -18,6 +20,7 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user = current_user
+
     if @book.save
       flash[:notice] = "Book was saved"
       redirect_to books_path
@@ -42,6 +45,14 @@ class BooksController < ApplicationController
 
   private
 
+  def authorize_access
+    if @book.present?
+      authorize @book
+    else
+      authorize Book
+    end
+  end
+  
   def set_book
     @book = Book.find(params[:id])
   end

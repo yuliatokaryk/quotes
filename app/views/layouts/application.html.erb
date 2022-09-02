@@ -12,9 +12,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <% if alert %>
-      <p><%= alert %></p>
-    <% end %>
+    <%= render 'layouts/flashes' %>
     <%= yield %>
   </body>
 </html>

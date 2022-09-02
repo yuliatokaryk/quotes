@@ -54,12 +54,14 @@
                 <td>
                   <%= link_to "Show", author_path(author), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
                 </td>
-                <td>
-                  <%= link_to "Edit", edit_author_path(author), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-                </td>
-                <td> 
-                  <%= link_to "Delete", author_path(author), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-                </td>
+                <% if policy(author).update? && policy(author).destroy?%>
+                  <td>
+                    <%= link_to "Edit", edit_author_path(author), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                  </td>
+                  <td> 
+                    <%= link_to "Delete", author_path(author), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+                  </td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
@@ -69,4 +71,6 @@
   </div>
 </div>
 
-<%= link_to "Add new author", new_author_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% if user_signed_in? %>
+  <%= link_to "Add new author", new_author_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>

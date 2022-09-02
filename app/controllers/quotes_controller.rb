@@ -1,5 +1,6 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_access
 
   def index   
     @pagy, @quotes = pagy(Quote.all)
@@ -10,6 +11,7 @@ class QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
+    authorize @quote
   end
 
   def edit
@@ -41,6 +43,14 @@ class QuotesController < ApplicationController
   end
 
   private
+
+  def authorize_access
+    if @quote.present?
+      authorize @quote
+    else
+      authorize Quote
+    end
+  end
 
   def set_quote
     @quote = Quote.find(params[:id])
