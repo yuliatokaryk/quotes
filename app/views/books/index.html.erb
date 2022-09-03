@@ -21,7 +21,7 @@
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= book.goodreads_url %></td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= book.author.full_name %></td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Show", book_path(book), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
-                <% if policy(book).update? && policy(book).destroy?%>
+                <% if policy(book).update? %>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Edit", edit_book_path(book), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Delete", book_path(book), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%></td>
                 <% end %>

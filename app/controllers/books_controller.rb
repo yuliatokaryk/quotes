@@ -11,7 +11,6 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
-    authorize @book
   end
 
   def edit

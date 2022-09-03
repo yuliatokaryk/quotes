@@ -11,7 +11,6 @@ class QuotesController < ApplicationController
 
   def new
     @quote = Quote.new
-    authorize @quote
   end
 
   def edit
