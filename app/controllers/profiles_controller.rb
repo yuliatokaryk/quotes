@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_access
 
   def show
   end
@@ -37,6 +38,14 @@ class ProfilesController < ApplicationController
   end
 
   private
+
+  def authorize_access
+    if @profile.present?
+      authorize @profile
+    else
+      authorize Profile
+    end
+  end
 
   def set_profile
     @profile = current_user.profile

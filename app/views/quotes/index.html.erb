@@ -15,8 +15,10 @@
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= quote.content %></td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= quote.book.title %></td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Show", quote_path(quote), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Edit", edit_quote_path(quote), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Delete", quote_path(quote), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%></td>
+                <% if policy(quote).update? %>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Edit", edit_quote_path(quote), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Delete", quote_path(quote), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
@@ -25,5 +27,9 @@
     </div>
   </div>
 </div>
-<%= link_to "Add new quote", new_quote_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+
+<% if user_signed_in? %>
+  <%= link_to "Add new quote", new_quote_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<% end %>
+
 <%== pagy_nav(@pagy) %>

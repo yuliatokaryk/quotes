@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_access
 
   def index
     @pagy, @authors = pagy(Author.all)
@@ -41,6 +42,14 @@ class AuthorsController < ApplicationController
   end
 
   private
+
+  def authorize_access
+    if @author.present?
+      authorize @author
+    else
+      authorize Author
+    end
+  end
 
   def set_author
     @author = Author.find(params[:id])

@@ -63,3 +63,5 @@ gem 'capistrano-rbenv'
 gem 'net-imap'
 gem 'net-pop'
 gem 'net-smtp'
+
+gem "pundit", "~> 2.2"
