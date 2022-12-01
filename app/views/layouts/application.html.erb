@@ -11,8 +11,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/flashes' %>
-    <%= yield %>
+    <div class="container mx-auto">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/flashes' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
