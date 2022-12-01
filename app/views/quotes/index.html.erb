@@ -2,22 +2,7 @@
   <%== pagy_nav(@pagy) %>
 </div>
 
-<% @quotes.each do |quote| %>
-  <div class="flex justify-center">
-    <div class="block p-6 rounded-lg shadow-lg bg-white w-6/12 my-3">
-      <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">
-        <%= link_to quote.book.title, quote_path(quote) %>
-      </h5>
-      <p class="text-gray-700 text-base mb-4">
-        <%= quote.content %>
-      </p>
-      <% if policy(quote).update? %>
-        <%= link_to "Edit", edit_quote_path(quote), class: "inline-block px-6 py-2.5 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" %>
-        <%= link_to "Delete", quote_path(quote), method: :delete, data: { confirm: "Are you sure?" }, class: "inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"%>
-      <% end %>
-    </div>
-  </div>
-<% end %>
+<%= render @quotes %>
 
 <div class="flex justify-center my-5">
   <%== pagy_nav(@pagy) %>
