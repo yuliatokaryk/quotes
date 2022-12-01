@@ -2,8 +2,9 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
   before_action :authorize_access
 
-  def index   
+  def index
     @pagy, @quotes = pagy(Quote.all)
+    @quotes = @quotes.order(created_at: :desc)
   end
 
   def show

@@ -1,35 +1,9 @@
-<%== pagy_nav(@pagy) %>
-<div class="flex flex-col">
-  <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-      <div class="overflow-hidden">
-        <table class="min-w-full border text-center">
-          <thead class="border-b">
-            <tr>
-              <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">Content</th>
-              <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">Book</th>
-              <th colspan="3" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">Actions</th>
-            </tr>
-            <% @quotes.each do |quote| %>
-              <tr>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= quote.content %></td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= quote.book.title %></td>
-                <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Show", quote_path(quote), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
-                <% if policy(quote).update? %>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Edit", edit_quote_path(quote), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %></td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= link_to "Delete", quote_path(quote), method: :delete, data: { confirm: "Are you sure?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"%></td>
-                <% end %>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<div class="flex justify-center my-5">
+  <%== pagy_nav(@pagy) %>
 </div>
 
-<% if user_signed_in? %>
-  <%= link_to "Add new quote", new_quote_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-<% end %>
+<%= render @quotes %>
 
-<%== pagy_nav(@pagy) %>
+<div class="flex justify-center my-5">
+  <%== pagy_nav(@pagy) %>
+</div>
