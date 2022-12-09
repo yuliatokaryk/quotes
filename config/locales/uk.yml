@@ -32,4 +32,12 @@ uk:
     gr_url: Посилання на Goodreads
     author: Автор
     add_new: Додати нову книгу
-      
+  profile:
+    fname: Ім'я
+    lname: Прізвище
+    nicname: Нікнейм
+    birthday: Дана народження
+    avatar: Аватар
+    create: Створити аккаунт
+    edit: Редагувати аккаунт
+    delete: Видалити мій аккаунт
