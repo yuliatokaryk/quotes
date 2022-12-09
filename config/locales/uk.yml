@@ -1,0 +1,26 @@
+uk:
+  questions:
+    sure: Ви впевнені?
+  actions:
+    actions: Дії
+    show: Показати
+    edit: Редагувати
+    delete: Видалити
+    submit: Підтвердти
+  authors:
+    fname: Ім'я
+    lname: Прізвище
+    birthd_date: Дата народження
+    wiki_url: Посилання на Вікіпедію
+    gr_url: Посилання на Goodreads
+    user_id: ID користувача
+    add_new: Додати нового автора
+  books:
+    index:
+      title: Назва
+      year: Рік публікації
+      wiki_url: Посилання на Вікіпедію
+      gr_url: Посилання на Goodreads
+      author: Автор
+      add_new: Додати нову книгу
+      
