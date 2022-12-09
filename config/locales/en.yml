@@ -41,3 +41,6 @@ en:
     create: Create profile
     edit: Edit profile
     delete: Delete my profile
+  quotes:
+    content: Content
+    book_id: Book
