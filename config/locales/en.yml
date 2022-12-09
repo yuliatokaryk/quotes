@@ -24,7 +24,6 @@ en:
     wiki_url: Wikipedia url
     gr_url: Goodreads url
     user_id: User ID
-    actions: Actions
     add_new: Add new author
   books:
     title: Title
@@ -33,3 +32,12 @@ en:
     gr_url: Goodreads url
     author: Author
     add_new: Add new book
+  profile:
+    fname: First name
+    lname: Last name
+    nicname: Nickname
+    birthday: Date of birth
+    avatar: Avatar
+    create: Create profile
+    edit: Edit profile
+    delete: Delete my profile
