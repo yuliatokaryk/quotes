@@ -1,0 +1,46 @@
+uk:
+  questions:
+    sure: Ви впевнені?
+  actions:
+    actions: Дії
+    show: Показати
+    edit: Редагувати
+    delete: Видалити
+    submit: Підтвердти
+  header:
+    home: Головна
+    quotes: Цитати
+    books: Книги
+    authors: Автори
+    my_profile: Мій профіль
+    new_quote: Додати нову цитату
+    sign_out: Вийти
+    sign_in: Зайти
+    sign_up: Зареєструватися
+  authors:
+    fname: Ім'я
+    lname: Прізвище
+    birthd_date: Дата народження
+    wiki_url: Посилання на Вікіпедію
+    gr_url: Посилання на Goodreads
+    user_id: ID користувача
+    add_new: Додати нового автора
+  books:
+    title: Назва
+    year: Рік публікації
+    wiki_url: Посилання на Вікіпедію
+    gr_url: Посилання на Goodreads
+    author: Автор
+    add_new: Додати нову книгу
+  profile:
+    fname: Ім'я
+    lname: Прізвище
+    nicname: Нікнейм
+    birthday: Дана народження
+    avatar: Аватар
+    create: Створити аккаунт
+    edit: Редагувати аккаунт
+    delete: Видалити мій аккаунт
+  quotes:
+    content: Текст
+    book_id: Книга
