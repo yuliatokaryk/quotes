@@ -16,11 +16,10 @@ uk:
     user_id: ID користувача
     add_new: Додати нового автора
   books:
-    index:
-      title: Назва
-      year: Рік публікації
-      wiki_url: Посилання на Вікіпедію
-      gr_url: Посилання на Goodreads
-      author: Автор
-      add_new: Додати нову книгу
+    title: Назва
+    year: Рік публікації
+    wiki_url: Посилання на Вікіпедію
+    gr_url: Посилання на Goodreads
+    author: Автор
+    add_new: Додати нову книгу
       

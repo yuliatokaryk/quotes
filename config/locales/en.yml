@@ -17,10 +17,9 @@ en:
     actions: Actions
     add_new: Add new author
   books:
-    index:
-      title: Title
-      year: Year of publication
-      wiki_url: Wikipedia url
-      gr_url: Goodreads url
-      author: Author
-      add_new: Add new bool
+    title: Title
+    year: Year of publication
+    wiki_url: Wikipedia url
+    gr_url: Goodreads url
+    author: Author
+    add_new: Add new bool

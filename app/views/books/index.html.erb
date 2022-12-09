@@ -7,19 +7,19 @@
           <thead class="border-b">
             <tr>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= t('books.index.title') %>
+                <%= t('books.title') %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= t('books.index.year') %>
+                <%= t('books.year') %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= t('books.index.wiki_url') %>
+                <%= t('books.wiki_url') %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= t('books.index.gr_url') %>
+                <%= t('books.gr_url') %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= t('books.index.author') %>
+                <%= t('books.author') %>
               </th>
               <th colspan="3" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
                 <%= t('actions.actions') %>
@@ -53,7 +53,7 @@
 </div>
 
 <% if user_signed_in? %>
-  <%= link_to t('books.index.add_new'), new_book_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  <%= link_to t('books.add_new'), new_book_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
 
 <%== pagy_nav(@pagy) %>
