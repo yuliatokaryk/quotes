@@ -7,6 +7,16 @@ uk:
     edit: Редагувати
     delete: Видалити
     submit: Підтвердти
+  header:
+    home: Головна
+    quotes: Цитати
+    books: Книги
+    authors: Автори
+    my_profile: Мій профіль
+    new_quote: Додати нову цитату
+    sign_out: Вийти
+    sign_in: Зайти
+    sign_up: Зареєструватися
   authors:
     fname: Ім'я
     lname: Прізвище
