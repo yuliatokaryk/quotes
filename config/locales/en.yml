@@ -7,6 +7,16 @@ en:
     edit: Edit
     delete: Delete
     submit: Submit
+  header:
+    home: Home
+    quotes: Quotes
+    books: Books
+    authors: Authors
+    my_profile: My profile
+    new_quote: Add new quote
+    sign_out: Sign out
+    sign_in: Sign in
+    sign_up: Sign up
   authors:
     fname: First name
     lname: Last name
@@ -22,4 +32,4 @@ en:
     wiki_url: Wikipedia url
     gr_url: Goodreads url
     author: Author
-    add_new: Add new bool
+    add_new: Add new book
