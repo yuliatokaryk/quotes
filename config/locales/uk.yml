@@ -41,3 +41,6 @@ uk:
     create: Створити аккаунт
     edit: Редагувати аккаунт
     delete: Видалити мій аккаунт
+  quotes:
+    content: Текст
+    book_id: Книга
