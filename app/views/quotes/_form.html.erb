@@ -11,11 +11,11 @@
 <div class="w-full max-w-xs">
   <%= form_with(model: @quote, local:true) do |f| %>
     <div class="mb-4">
-      <%= f.label :content, class: "block text-gray-700 text-sm font-bold mb-2" %><br>
+      <%= f.label :content, class: "block text-gray-700 text-sm font-bold mb-2" %>
       <%= f.text_area :content, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %><br>
     </div>
     <div class="mb-4">
-      <%= f.label :book_id, 'Book', class: "block text-gray-700 text-sm font-bold mb-2" %><br>
+      <%= f.label :book_id, 'Book', class: "block text-gray-700 text-sm font-bold mb-2" %>
       <%= f.select :book_id, Book.all.collect {|b| [ b.title, b.id ] }, { include_blank: true }, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %><br>
     </div>
     <div class="mb-4">  
