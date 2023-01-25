@@ -1,11 +1,43 @@
 uk:
+  activerecord:
+    attributes:
+      author:
+        first_name: Ім'я
+        last_name: Прізвище
+        birthd_date: Дата народження
+        wiki_url: Посилання на Вікіпедію
+        gr_url: Посилання на Goodreads
+        user_id: ID користувача
+      book:
+        title: Назва
+        year: Рік публікації
+        wiki_url: Посилання на Вікіпедію
+        gr_url: Посилання на Goodreads
+        author: Автор
+      quote:
+        content: Текст
+        book_id: Книга
+  authors:
+    index:
+      actions: Дії
+      add_new_author: Додати нового автора
+      edit_author: Редагувати автора
+      delete_author: Видалити автора
+      show_author: Показати автора
+  books:
+    index:
+      actions: Дії
+      add_new_book: Додати нову книгу
+      edit_book: Редагувати книгу
+      delete_book: Видалити книгу
+      show_book: Показати книгу
+  quotes:
+    edit_quote: Редагувати цитату
+    delete_quote: Видалити цитату
+    show_quote: Показати цитату
   questions:
     sure: Ви впевнені?
   actions:
-    actions: Дії
-    show: Показати
-    edit: Редагувати
-    delete: Видалити
     submit: Підтвердти
   header:
     home: Головна
@@ -17,21 +49,6 @@ uk:
     sign_out: Вийти
     sign_in: Зайти
     sign_up: Зареєструватися
-  authors:
-    fname: Ім'я
-    lname: Прізвище
-    birthd_date: Дата народження
-    wiki_url: Посилання на Вікіпедію
-    gr_url: Посилання на Goodreads
-    user_id: ID користувача
-    add_new: Додати нового автора
-  books:
-    title: Назва
-    year: Рік публікації
-    wiki_url: Посилання на Вікіпедію
-    gr_url: Посилання на Goodreads
-    author: Автор
-    add_new: Додати нову книгу
   profile:
     fname: Ім'я
     lname: Прізвище
@@ -41,6 +58,3 @@ uk:
     create: Створити аккаунт
     edit: Редагувати аккаунт
     delete: Видалити мій аккаунт
-  quotes:
-    content: Текст
-    book_id: Книга
