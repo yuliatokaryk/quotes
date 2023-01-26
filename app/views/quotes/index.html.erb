@@ -1,5 +1,8 @@
-<%= render @quotes %>
-
-<div class="flex justify-center my-5">
-  <%== pagy_nav(@pagy) %>
-</div>
+<% if @quotes.any? %>
+  <%= render @quotes %>
+  <div class="flex justify-center my-5">
+    <%== pagy_nav(@pagy) %>
+  </div>
+<% else %>
+  <h1 class='text-center my-5 text-4xl'>There are no any books</h1>
+<% end %>
