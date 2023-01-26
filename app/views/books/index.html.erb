@@ -24,7 +24,9 @@
                 <%= t('.actions') %>
               </th>
             </tr>
-            <% @books.each do |book| %>
+            </thead>
+            <tbody>
+            <% @books.each do |book| %>            
               <tr>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= book.title %></td>
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap border-r"><%= book.year_of_publication %></td>
