@@ -5,6 +5,12 @@ class Quote < ApplicationRecord
 
   validates :content, presence: true, length: { maximum: 1000 }
 
+  state_machine initial: :pending do
+    event :approve do
+      transition pending: :approved
+    end
+  end
+
   def liked_by?(user)
     likes.exists?(user: user)
   end
