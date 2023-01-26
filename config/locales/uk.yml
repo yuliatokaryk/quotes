@@ -4,16 +4,16 @@ uk:
       author:
         first_name: Ім'я
         last_name: Прізвище
-        birthd_date: Дата народження
-        wiki_url: Посилання на Вікіпедію
-        gr_url: Посилання на Goodreads
+        date_of_birth: Дата народження
+        wikipedia_url: Посилання на Вікіпедію
+        goodreads_url: Посилання на Goodreads
         user_id: ID користувача
       book:
         title: Назва
-        year: Рік публікації
-        wiki_url: Посилання на Вікіпедію
-        gr_url: Посилання на Goodreads
-        author: Автор
+        year_of_publication: Рік публікації
+        wikipedia_url: Посилання на Вікіпедію
+        goodreads_url: Посилання на Goodreads
+        author_id: Автор
       quote:
         content: Текст
         book_id: Книга

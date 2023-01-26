@@ -4,16 +4,16 @@ en:
       author:
         first_name: First name
         last_name: Last name
-        birthd_date: Date of birth
-        wiki_url: Wikipedia url
-        gr_url: Goodreads url
+        date_of_birth: Date of birth
+        wikipedia_url: Wikipedia url
+        goodreads_url: Goodreads url
         user_id: User ID
       book:
         title: Title
-        year: Year of publication
-        wiki_url: Wikipedia url
-        gr_url: Goodreads url
-        author: Author
+        year_of_publication: Year of publication
+        wikipedia_url: Wikipedia url
+        goodreads_url: Goodreads url
+        author_id: Author
       quote:
         content: Content
         book_id: Book

@@ -10,19 +10,19 @@
                 <%= Book.human_attribute_name(:title) %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= Book.human_attribute_name(:year) %>
+                <%= Book.human_attribute_name(:year_of_publication) %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= Book.human_attribute_name(:wiki_url) %>
+                <%= Book.human_attribute_name(:wikipedia_url) %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= Book.human_attribute_name(:gr_url) %>
+                <%= Book.human_attribute_name(:goodreads_url) %>
               </th>
               <th class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= Book.human_attribute_name(:author) %>
+                <%= Book.human_attribute_name(:author_id) %>
               </th>
               <th colspan="3" class="text-sm font-medium text-gray-900 px-6 py-4 border-r">
-                <%= t('actions.actions') %>
+                <%= t('.actions') %>
               </th>
             </tr>
             <% @books.each do |book| %>
