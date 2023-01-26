@@ -32,9 +32,10 @@ uk:
       delete_book: Видалити книгу
       show_book: Показати книгу
   quotes:
-    edit_quote: Редагувати цитату
-    delete_quote: Видалити цитату
-    show_quote: Показати цитату
+    quote:
+      edit_quote: Редагувати цитату
+      delete_quote: Видалити цитату
+      show_quote: Показати цитату
   questions:
     sure: Ви впевнені?
   actions:

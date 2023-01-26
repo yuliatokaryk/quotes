@@ -32,9 +32,10 @@ en:
       delete_book: Delete book
       show_book: Show book
   quotes:
-    edit_quote: Edit quote
-    delete_quote: Delete quote
-    show_quote: Show quote
+    quote:
+      edit_quote: Edit quote
+      delete_quote: Delete quote
+      show_quote: Show quote
   questions:
     sure: Are you sure?
   actions:
