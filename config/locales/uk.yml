@@ -1,0 +1,60 @@
+uk:
+  activerecord:
+    attributes:
+      author:
+        first_name: Ім'я
+        last_name: Прізвище
+        date_of_birth: Дата народження
+        wikipedia_url: Посилання на Вікіпедію
+        goodreads_url: Посилання на Goodreads
+        user_id: ID користувача
+      book:
+        title: Назва
+        year_of_publication: Рік публікації
+        wikipedia_url: Посилання на Вікіпедію
+        goodreads_url: Посилання на Goodreads
+        author_id: Автор
+      quote:
+        content: Текст
+        book_id: Книга
+  authors:
+    index:
+      actions: Дії
+      add_new_author: Додати нового автора
+      edit_author: Редагувати автора
+      delete_author: Видалити автора
+      show_author: Показати автора
+  books:
+    index:
+      actions: Дії
+      add_new_book: Додати нову книгу
+      edit_book: Редагувати книгу
+      delete_book: Видалити книгу
+      show_book: Показати книгу
+  quotes:
+    edit_quote: Редагувати цитату
+    delete_quote: Видалити цитату
+    show_quote: Показати цитату
+  questions:
+    sure: Ви впевнені?
+  actions:
+    submit: Підтвердти
+  header:
+    home: Головна
+    quotes: Цитати
+    books: Книги
+    authors: Автори
+    my_profile: Мій профіль
+    new_quote: Додати нову цитату
+    sign_out: Вийти
+    sign_in: Зайти
+    sign_up: Зареєструватися
+  profile:
+    fname: Ім'я
+    lname: Прізвище
+    nicname: Нікнейм
+    birthday: Дана народження
+    avatar: Аватар
+    create: Створити аккаунт
+    edit: Редагувати аккаунт
+    delete: Видалити мій аккаунт
