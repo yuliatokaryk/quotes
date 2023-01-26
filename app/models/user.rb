@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :quotes
   has_many :likes
   has_one :profile
+
+  enum role: { user: 0, superuser: 1, moderator: 2, admin: 3 }
 end
