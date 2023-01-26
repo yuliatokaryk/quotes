@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      flash[:notice] = t('.success'.success)
+      flash[:notice] = t('.success')
       redirect_to profile_path
     else
       render 'new'
