@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :books
   resources :quotes
   resource :profile
+  resource :likes, only: [:create, :destroy]
 end
