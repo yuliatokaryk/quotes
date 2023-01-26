@@ -24,6 +24,10 @@ uk:
       edit_author: Редагувати автора
       delete_author: Видалити автора
       show_author: Показати автора
+    create:
+      success: Автора було збережено
+    update:
+      success: Автора було оновлено
   books:
     index:
       actions: Дії
@@ -31,11 +35,24 @@ uk:
       edit_book: Редагувати книгу
       delete_book: Видалити книгу
       show_book: Показати книгу
+    create:
+      success: Книгу було збережено
+    update:
+      success: Книгу було оновлено
   quotes:
     quote:
       edit_quote: Редагувати цитату
       delete_quote: Видалити цитату
       show_quote: Показати цитату
+    create:
+      success: Цитата була опублікована
+    update:
+      success: Цитата була оновлена
+  profiles:
+    create: 
+      success: Профіль було створено
+    update:
+      success: Профіль було оновлено
   questions:
     sure: Ви впевнені?
   actions:

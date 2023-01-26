@@ -24,6 +24,10 @@ en:
       edit_author: Edit author
       delete_author: Delete author
       show_author: Show author
+    create:
+      success: Author was saved
+    update:
+      success: Author was updated
   books:
     index:
       actions: Actions
@@ -31,11 +35,24 @@ en:
       edit_book: Edit book
       delete_book: Delete book
       show_book: Show book
+    create:
+      success: Book was saved
+    update:
+      success: Book was updated
   quotes:
     quote:
       edit_quote: Edit quote
       delete_quote: Delete quote
       show_quote: Show quote
+    create:
+      success: Quote was saved
+    update:
+      success: Quote was update
+  profiles:
+    create: 
+      success: Profile was saved
+    update:
+      success: Profile was update
   questions:
     sure: Are you sure?
   actions:

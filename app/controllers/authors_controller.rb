@@ -20,7 +20,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
     @author.user = current_user
     if @author.save
-      flash[:notice] = "Author was saved"
+      flash[:notice] = t('.success')
       redirect_to authors_path
     else
       render 'new'
@@ -29,7 +29,7 @@ class AuthorsController < ApplicationController
 
   def update
     if @author.update(author_params)
-      flash[:notice] = "Author was updated"
+      flash[:notice] = t('.success')
       redirect_to @author
     else
       render 'edit'
