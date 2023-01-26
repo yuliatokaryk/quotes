@@ -21,7 +21,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new(quote_params)
     @quote.user = current_user
     if @quote.save
-      flash[:notice] = "Quote was saved"
+      flash[:notice] = t('.success')
       redirect_to quotes_path
     else
       render 'new'
@@ -30,7 +30,7 @@ class QuotesController < ApplicationController
 
   def update
     if @quote.update(quote_params)
-      flash[:notice] = "Quote was updated"
+      flash[:notice] = t('.success')
       redirect_to @quote
     else
       render 'edit'

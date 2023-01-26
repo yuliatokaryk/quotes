@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
     if @profile.save
-      flash[:notice] = "Profile was saved"
+      flash[:notice] = t('.success')
       redirect_to profile_path
     else
       render 'new'
@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      flash[:notice] = "Profile was updated"
+      flash[:notice] = t('.success')
       redirect_to root_path
     else
       render 'edit'
