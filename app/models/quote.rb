@@ -5,7 +5,7 @@ class Quote < ApplicationRecord
 
   validates :content, presence: true, length: { maximum: 1000 }
 
-  def liked?(user)
-    !!self.likes.find{ |like| like.user_id == user.id }
+  def liked_by?(user)
+    likes.exists?(user: user)
   end
 end
