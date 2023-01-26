@@ -65,3 +65,5 @@ gem 'net-pop'
 gem 'net-smtp'
 
 gem "pundit", "~> 2.2"
+
+gem "state_machines", "~> 0.5.0"
