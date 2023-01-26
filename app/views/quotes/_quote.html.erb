@@ -11,9 +11,13 @@
     </p>
     <% if user_signed_in? %>
       <% if quote.liked_by?(current_user)  %>
-        <%= button_to "Unlike", likes_path(quote_id: quote.id, page: params['page']), method: :delete, class: "text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
+        <%= button_to likes_path(quote_id: quote.id, page: params['page']), method: :delete do %>
+          <i class="fa-solid fa-heart text-pink-600 text-xl"></i>
+        <% end %>
       <% else %>
-        <%= button_to "Like", likes_path(quote_id: quote.id, page: params['page']), class: "text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" %>
+        <%= button_to likes_path(quote_id: quote.id, page: params['page']) do %> 
+          <i class="fa-regular fa-heart text-pink-600 text-xl"></i>
+        <% end %>
       <% end %>
     <% end %>
     <% if policy(quote).update? %>
