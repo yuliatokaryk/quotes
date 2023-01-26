@@ -24,7 +24,7 @@ en:
       edit_author: Edit author
       delete_author: Delete author
       show_author: Show author
-      empty: There no any authors yet
+      empty: There no authors yet
     create:
       success: Author was saved
     update:
@@ -36,7 +36,7 @@ en:
       edit_book: Edit book
       delete_book: Delete book
       show_book: Show book
-      empty: There no any books yet
+      empty: There no books yet
     create:
       success: Book was saved
     update:
@@ -47,7 +47,7 @@ en:
       delete_quote: Delete quote
       show_quote: Show quote
     index:
-      empty: There no any quotes yet
+      empty: There no quotes yet
     create:
       success: Quote was saved
     update:
