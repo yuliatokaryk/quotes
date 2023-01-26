@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :authors
   has_many :books
   has_many :quotes
+  has_many :likes
   has_one :profile
 end

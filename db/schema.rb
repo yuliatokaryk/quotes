@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_22_092736) do
+ActiveRecord::Schema.define(version: 2023_01_26_084706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,15 @@ ActiveRecord::Schema.define(version: 2022_08_22_092736) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "quote_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quote_id"], name: "index_likes_on_quote_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -105,6 +114,8 @@ ActiveRecord::Schema.define(version: 2022_08_22_092736) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authors", "users"
   add_foreign_key "books", "users"
+  add_foreign_key "likes", "quotes"
+  add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "quotes", "books"
   add_foreign_key "quotes", "users"
