@@ -24,6 +24,7 @@ uk:
       edit_author: Редагувати автора
       delete_author: Видалити автора
       show_author: Показати автора
+      empty: Ще не додано жодного автора
     create:
       success: Автора було збережено
     update:
@@ -35,6 +36,7 @@ uk:
       edit_book: Редагувати книгу
       delete_book: Видалити книгу
       show_book: Показати книгу
+      empty: Ще не додано жодної книги
     create:
       success: Книгу було збережено
     update:
@@ -44,6 +46,8 @@ uk:
       edit_quote: Редагувати цитату
       delete_quote: Видалити цитату
       show_quote: Показати цитату
+    index:
+      empty: Ще не додано жодної цитати
     create:
       success: Цитата була опублікована
     update:

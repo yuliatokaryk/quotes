@@ -73,7 +73,7 @@
     <%== pagy_nav(@pagy) %>
   </div>
 <% else %>
-  <h1 class='text-center my-5 text-4xl'>There are no any authors</h1>
+  <h1 class='text-center my-5 text-4xl'><%= t('.empty') %></h1>
 <% end %>
 
 <% if user_signed_in? %>
