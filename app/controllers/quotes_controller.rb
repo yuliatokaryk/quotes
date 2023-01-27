@@ -39,7 +39,7 @@ class QuotesController < ApplicationController
 
   def destroy
     @quote.destroy
-    redirect_to quotes_path
+    redirect_back(fallback_location: root_path)
   end
 
   private

@@ -33,6 +33,6 @@ class ApplicationPolicy
   end
 
   def destroy?
-    return update?
+    return true if user.present? && (user == record.user || user.admin? || user.moderator?)
   end
 end

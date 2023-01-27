@@ -17,6 +17,12 @@ uk:
       quote:
         content: Текст
         book_id: Книга
+  admin:
+    quotes:
+      pending:
+        approve_quote: Підтвердити публікацію
+        delete_quote: Видалити публікацію
+        empty: Немає жодної публікації на очікуванні
   authors:
     index:
       actions: Дії
@@ -71,6 +77,7 @@ uk:
     sign_out: Вийти
     sign_in: Зайти
     sign_up: Зареєструватися
+    pending_quotes: Публікуції на очікуванні
   profile:
     fname: Ім'я
     lname: Прізвище
