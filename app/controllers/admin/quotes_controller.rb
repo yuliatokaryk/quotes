@@ -1,0 +1,19 @@
+class Admin::QuotesController < ActionController::Base
+  before_action :set_quote, only: [:approve]
+
+  def pending
+    @quotes = Quote.where(state: 'pending')
+  end
+
+  def approve
+    @quote.approve!
+
+    redirect_to admin_pending_quotes_path
+  end
+
+  private
+
+  def set_quote
+    @quote ||= Quote.find(params[:quote_id])
+  end
+end

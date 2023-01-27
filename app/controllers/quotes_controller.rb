@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
   before_action :authorize_access
 
   def index
-    @pagy, @quotes = pagy(Quote.all)
+    @pagy, @quotes = pagy(Quote.where(state: 'approved'))
     @quotes = @quotes.order(created_at: :desc)
   end
 
