@@ -17,15 +17,15 @@ class ApplicationPolicy
   end
 
   def create?
-    true if user.present?
+    true
   end
 
   def new?
-    true if user.present?
+    true
   end
 
   def update?
-    return true if user.present? && user == record.user
+    return true if user == record.user
   end
 
   def edit?
@@ -33,6 +33,6 @@ class ApplicationPolicy
   end
 
   def destroy?
-    return true if user.present? && (user == record.user || user.admin? || user.moderator?)
+    return true if user == record.user || user.admin? || user.moderator?
   end
 end
