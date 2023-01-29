@@ -1,5 +1,6 @@
 class Admin::QuotesController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user!
+  before_action :authorizate_user
   before_action :set_quote, only: [:approve]
 
   def pending
@@ -18,8 +19,8 @@ class Admin::QuotesController < ApplicationController
     @quote ||= Quote.find(params[:quote_id])
   end
 
-  def authenticate_user
-    return if current_user && (current_user.admin? || current_user.moderator?)
+  def authorizate_user
+    return current_user.admin? || current_user.moderator?
 
     redirect_to root_path
   end
