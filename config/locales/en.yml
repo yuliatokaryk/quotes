@@ -17,6 +17,12 @@ en:
       quote:
         content: Content
         book_id: Book
+  admin:
+    quotes:
+      pending:
+        approve_quote: Approve quote
+        delete_quote: Delete quote
+        empty: There are no pending quotes yet
   authors:
     index:
       actions: Actions
@@ -71,6 +77,7 @@ en:
     sign_out: Sign out
     sign_in: Sign in
     sign_up: Sign up
+    pending_quotes: Pending quotes
   profile:
     fname: First name
     lname: Last name

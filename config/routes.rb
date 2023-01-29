@@ -6,4 +6,15 @@ Rails.application.routes.draw do
   resources :quotes
   resource :profile
   resource :likes, only: [:create, :destroy]
+
+  namespace :admin do
+    resources :quotes, only: [:index, :destroy]
+    get :pending_quotes, to: 'quotes#pending'
+  end
+
+  namespace :admin do
+    resources :quotes, only: [:index, :destroy] do
+      post :approve, to: 'quotes#approve'
+    end
+  end
 end
