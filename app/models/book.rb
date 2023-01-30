@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author, optional: true
   belongs_to :user
-  has_many :quotes
+  has_many :quotes, as: :source
   
   validates :title, presence: true
 end
