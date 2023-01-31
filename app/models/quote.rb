@@ -14,4 +14,13 @@ class Quote < ApplicationRecord
   def liked_by?(user)
     likes.exists?(user: user)
   end
+
+  def source_string
+    source&.to_s
+  end
+
+  def source_string=(string)
+    type, id = string.split(':')
+    self.source = type.constantize.find(id)
+  end
 end

@@ -2,9 +2,15 @@
   <% @quotes.each do |quote| %>
     <div class="flex justify-center">
       <div class="block p-6 rounded-lg shadow-lg bg-white w-6/12 my-3">
-        <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">
-          <%= link_to quote.book.title, quote_path(quote) %>
-        </h5>
+        <% if quote.source_type == "Book" %>
+          <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">
+            <%= quote.source.title %>
+          </h5>
+        <% elsif quote.source_type == "Author" %>
+          <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">
+            <%= "#{quote.source.first_name} #{quote.source.last_name}" %>
+          </h5>
+        <% end %>
         <p class="text-gray-700 text-base mb-4">
           <%= quote.content %>
         </p>

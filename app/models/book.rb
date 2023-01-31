@@ -4,4 +4,8 @@ class Book < ApplicationRecord
   has_many :quotes, as: :source
   
   validates :title, presence: true
+
+  def source_data
+    self.title
+  end
 end

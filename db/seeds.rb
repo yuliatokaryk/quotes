@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 3.times do |i|
-  User.create(email: "user_#{i}@quotes.come", password: "user_#{1}", password_confirmation: "user_#{1}")
+  User.create(email: "user_#{i}@quotes.com", password: "user_#{1}", password_confirmation: "user_#{1}")
 end
 
 10.times do 
@@ -28,8 +28,16 @@ end
               user_id: User.pluck(:id).sample)
 end
 
-120.times do 
+60.times do 
   Quote.create(content: Faker::Lorem.paragraph,
-               book_id: Book.pluck(:id).sample,
-               user_id: User.pluck(:id).sample)
+               user_id: User.pluck(:id).sample,
+               source_type: 'Book',
+               source_id: Book.pluck(:id).sample)
+end
+
+60.times do 
+  Quote.create(content: Faker::Lorem.paragraph,
+               user_id: User.pluck(:id).sample,
+               source_type: 'Author',
+               source_id: Author.pluck(:id).sample)
 end

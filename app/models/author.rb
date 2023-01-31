@@ -7,4 +7,8 @@ class Author < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def source_data
+    full_name
+  end
 end
