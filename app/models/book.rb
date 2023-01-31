@@ -6,6 +6,6 @@ class Book < ApplicationRecord
   validates :title, presence: true
 
   def source_data
-    self.title
+    title
   end
 end

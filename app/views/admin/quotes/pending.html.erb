@@ -8,7 +8,7 @@
           </h5>
         <% elsif quote.source_type == "Author" %>
           <h5 class="text-gray-900 text-xl leading-tight font-medium mb-2">
-            <%= "#{quote.source.first_name} #{quote.source.last_name}" %>
+            <%= quote.source.full_name %>
           </h5>
         <% end %>
         <p class="text-gray-700 text-base mb-4">
