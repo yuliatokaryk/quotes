@@ -21,6 +21,7 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     @quote.user = current_user
+    
     if @quote.save
       flash[:notice] = t('.success')
       redirect_to quotes_path
@@ -58,6 +59,6 @@ class QuotesController < ApplicationController
   end
 
   def quote_params
-    params.require(:quote).permit(:content, :book_id)
+    params.require(:quote).permit(:content, :source_string)
   end
 end

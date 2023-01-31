@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_26_143623) do
+ActiveRecord::Schema.define(version: 2023_01_31_092040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,12 +90,13 @@ ActiveRecord::Schema.define(version: 2023_01_26_143623) do
 
   create_table "quotes", force: :cascade do |t|
     t.text "content"
-    t.bigint "book_id"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "state", default: "pending"
-    t.index ["book_id"], name: "index_quotes_on_book_id"
+    t.string "source_type"
+    t.bigint "source_id"
+    t.index ["source_type", "source_id"], name: "index_quotes_on_source"
     t.index ["user_id"], name: "index_quotes_on_user_id"
   end
 
@@ -119,6 +120,5 @@ ActiveRecord::Schema.define(version: 2023_01_26_143623) do
   add_foreign_key "likes", "quotes"
   add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "quotes", "books"
   add_foreign_key "quotes", "users"
 end
