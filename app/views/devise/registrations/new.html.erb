@@ -1,30 +1,65 @@
-<h2>Sign up</h2>
-
-<div class="w-full max-w-xs">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-    <div class="mb-4">
-      <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+<section class="h-full gradient-form bg-gray-200 md:h-screen">
+  <div class="container py-12 px-6 h-full">
+    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+      <div class="xl:w-10/12">
+        <div class="block bg-white shadow-lg rounded-lg">
+          <div class="lg:flex lg:flex-wrap g-0">
+            <div class="lg:w-6/12 px-4 md:px-0">
+              <div class="md:p-12 md:mx-6">
+                <div class="text-center">
+                <%= image_tag("QS-logo", class: "mx-auto w-40 my-5", alt: "logo") %>
+                </div>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                  <p class="mb-4"><%= t('.sign_up') %>:</p>
+                  <div class="mb-4">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+                  </div>
+                  <div class="mb-4">
+                    <% if @minimum_password_length %>
+                      <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "new-password", class:"form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+                  </div>
+                  <div class="mb-4">
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" %>
+                  </div>
+                  <div class="text-center pt-1 mb-12 pb-1">
+                  <%= f.submit t('.sign_up'), class: "inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", style:"
+                        background: linear-gradient(
+                          to right,
+                          #979dac,
+                          #7d8597,
+                          #5c677d,
+                          #33415c,
+                          #001233);" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div
+              class="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
+              style="
+                background: linear-gradient(to right,
+                          #979dac,
+                          #7d8597,
+                          #5c677d,
+                          #33415c,
+                          #001233);"
+            >
+              <div class="text-white px-4 py-6 md:p-12 md:mx-6">
+                <h4 class="text-xl font-semibold mb-6">We are more than just a company</h4>
+                <p class="text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="mb-4">
-      <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-
-    <div class="mb-4">
-      <%= f.label :password_confirmation, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
-</div>
-<%= render "devise/shared/links" %>
+  </div>
+</section>
