@@ -93,6 +93,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.3)
+      devise (>= 4.8.0)
     diff-lcs (1.5.0)
     dotenv (2.8.1)
     dotenv-rails (2.8.1)
@@ -285,6 +287,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rbenv
   devise
+  devise-i18n (~> 1.10)
   dotenv-rails
   factory_bot_rails
   faker
