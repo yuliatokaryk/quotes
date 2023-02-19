@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_action do
+    I18n.locale = :uk
+  end
   before_action :authenticate_user!
 
   include Pagy::Backend
