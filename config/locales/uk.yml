@@ -24,24 +24,26 @@ uk:
         delete_quote: Видалити публікацію
         empty: Немає жодної публікації на очікуванні
   authors:
+    author:
+      show_author: Показати автора
     index:
       actions: Дії
       add_new_author: Додати нового автора
       edit_author: Редагувати автора
       delete_author: Видалити автора
-      show_author: Показати автора
       empty: Ще не додано жодного автора
     create:
       success: Автора було збережено
     update:
       success: Автора було оновлено
   books:
+    book:
+      show_book: Показати книгу
     index:
       actions: Дії
       add_new_book: Додати нову книгу
       edit_book: Редагувати книгу
       delete_book: Видалити книгу
-      show_book: Показати книгу
       empty: Ще не додано жодної книги
     create:
       success: Книгу було збережено
