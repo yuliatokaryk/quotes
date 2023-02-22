@@ -52,6 +52,7 @@ en:
       edit_quote: Edit quote
       delete_quote: Delete quote
       show_quote: Show quote
+      pending_quote: Quote is pending admin confirmation
     index:
       empty: There are no quotes yet
     create:

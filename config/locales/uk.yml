@@ -52,6 +52,7 @@ uk:
       edit_quote: Редагувати цитату
       delete_quote: Видалити цитату
       show_quote: Показати цитату
+      pending_quote: Цитата очікує на підтвердження адміністратором
     index:
       empty: Ще не додано жодної цитати
     create:
