@@ -24,24 +24,26 @@ en:
         delete_quote: Delete quote
         empty: There are no pending quotes yet
   authors:
+    author:
+      show_author: Show author
     index:
       actions: Actions
       add_new_author: Add new author
       edit_author: Edit author
       delete_author: Delete author
-      show_author: Show author
       empty: There are no authors yet
     create:
       success: Author was saved
     update:
       success: Author was updated
   books:
+    book:
+      show_book: Show book
     index:
       actions: Actions
       add_new_book: Add new book
       edit_book: Edit book
       delete_book: Delete book
-      show_book: Show book
       empty: There are no books yet
     create:
       success: Book was saved

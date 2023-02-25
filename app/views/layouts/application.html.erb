@@ -8,12 +8,13 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('qs.png') %>
   </head>
 
   <body>
+    <%= render "layouts/header" %>
     <div class="container mx-auto">
-      <%= render 'layouts/header' %>
-      <%= render 'layouts/flashes' %>
+      <%= render "layouts/flashes" %>
       <%= yield %>
     </div>
   </body>

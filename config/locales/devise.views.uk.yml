@@ -6,6 +6,7 @@ uk:
           attributes:
             email:
               blank: не може бути відсутня
+              taken: вже зареєстрована
             password:
               blank: не може бути відсутнім
             password_confirmation:
