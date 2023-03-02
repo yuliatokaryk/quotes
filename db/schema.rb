@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_02_143857) do
+ActiveRecord::Schema.define(version: 2023_03_02_164849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,24 @@ ActiveRecord::Schema.define(version: 2023_03_02_143857) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "followers", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "follower_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["profile_id"], name: "index_followers_on_profile_id"
+  end
+
+  create_table "following", force: :cascade do |t|
+    t.bigint "profile_id"
+    t.bigint "following_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["following_id"], name: "index_following_on_following_id"
+    t.index ["profile_id"], name: "index_following_on_profile_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "quote_id"
@@ -87,7 +105,7 @@ ActiveRecord::Schema.define(version: 2023_03_02_143857) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "country"
     t.string "city"
-    t.integer "number"
+    t.bigint "number"
     t.text "bio"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -121,6 +139,10 @@ ActiveRecord::Schema.define(version: 2023_03_02_143857) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authors", "users"
   add_foreign_key "books", "users"
+  add_foreign_key "followers", "profiles"
+  add_foreign_key "followers", "profiles", column: "follower_id"
+  add_foreign_key "following", "profiles"
+  add_foreign_key "following", "profiles", column: "following_id"
   add_foreign_key "likes", "quotes"
   add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"
