@@ -1,44 +1,78 @@
-<div class="flex justify-center">
-  <div class="p-10 flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700 md:w-2/4 md:flex-row">
-    <% if  @profile.avatar.attached? %>
-      <%= image_tag @profile.avatar, class:"h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" %>
-    <% else %>
-      <%= image_tag src="user.png", class:"h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" %>
-    <% end %>
-    <div class="flex flex-col justify-start p-6">
-      <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-        <%= @profile.nickname %>
-      </h3>
-      <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
-        <%= @profile.full_name %>
-      </h5>
-      <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-        This is a wider card with supporting text below as a natural
-        lead-in to additional content. This content is a little bit
-        longer.
-      </p>
-      <p class="text-xs text-neutral-500 dark:text-neutral-300">
-        Last updated 3 mins ago
-      </p>
-      <% if current_user == @profile.user %>
-        <%= link_to t('.edit'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
-                                                          style:"background: linear-gradient(
-                                                                              to right,
-                                                                              #979dac,
-                                                                              #7d8597,
-                                                                              #5c677d,
-                                                                              #33415c,
-                                                                              #001233);" %>
-      <% else %>
-        <%= link_to t('.follow'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
-                                                          style:"background: linear-gradient(
-                                                                              to right,
-                                                                              #979dac,
-                                                                              #7d8597,
-                                                                              #5c677d,
-                                                                              #33415c,
-                                                                              #001233);" %>
-      <% end %>
+<section class="h-full gradient-form md:h-screen">
+  <div class="container py-12 px-6 h-full">
+    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+      <div class="xl:w-10/12">
+        <div class="block bg-white shadow-lg rounded-lg">
+          <div class="lg:flex lg:flex-wrap g-0">
+            <div class="lg:w-3/12 px-4 md:px-0">
+              <div class="md:p-12 md:mx-6">
+                <div class="text-center">
+                    <% if  @profile.avatar.attached? %>
+                      <%= image_tag @profile.avatar, class:"mx-auto w-40 my-5", alt: "avatar" %>
+                    <% else %>
+                      <%= image_tag src="user.png", class:"mx-auto w-40 my-5", alt: "avatar" %>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-9/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none">
+              <div class="ttext-neutral-800 px-4 py-6 md:p-12 md:mx-6">
+                <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                  @<%= @profile.nickname %>
+                </h3>
+                <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
+                  <%= @profile.full_name %>
+                </h5>
+                <% if @profile.country.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <%= @profile.country %>
+                    <% if @profile.city.present? %>
+                      , <%= @profile.city %>
+                    <% end %>
+                  </p>
+                <% end %>
+                <% if @profile.date_of_birth.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <b><%= t(".date_of_birth") %>:</b> <%= @profile.date_of_birth %>
+                  </p>
+                <% end %>
+                <% if @profile.number.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <b><%= t(".number") %>:</b> <%= @profile.number %>
+                  </p>
+                <% end %>
+                <% if @profile.bio.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <b><%= t(".about") %> <%= @profile.first_name %>:</b> <%= @profile.bio %>
+                  </p>
+                <% end %>
+                <p class="text-xs text-neutral-500 dark:text-neutral-300">
+                  <%= t(".joined") %> <%= @profile.created_at %>
+                </p>
+                <% if current_user == @profile.user %>
+                  <%= link_to t('.edit'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                                    style:"background: linear-gradient(
+                                                                                        to right,
+                                                                                        #979dac,
+                                                                                        #7d8597,
+                                                                                        #5c677d,
+                                                                                        #33415c,
+                                                                                        #001233);" %>
+                <% else %>
+                  <%= link_to t('.follow'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                                    style:"background: linear-gradient(
+                                                                                        to right,
+                                                                                        #979dac,
+                                                                                        #7d8597,
+                                                                                        #5c677d,
+                                                                                        #33415c,
+                                                                                        #001233);" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -73,6 +73,10 @@ uk:
       avatar: Фото профілю
       country: Країна
       city: Місто
+      number: Номер телефону
+      bio: Про мене
+      about: Про
+      joined: Долучено
       submit: Зберегти мій профіль
     create: 
       success: Профіль було створено

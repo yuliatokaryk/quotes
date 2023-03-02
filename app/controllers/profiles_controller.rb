@@ -8,9 +8,12 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
+    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{|x| ["Russian Federation"].include? x}
   end
 
   def edit
+    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{|x| ["Russian Federation"].include? x}
+    @selected_country = @profile.country
   end
 
   def create
@@ -27,7 +30,7 @@ class ProfilesController < ApplicationController
   def update
     if @profile.update(profile_params)
       flash[:notice] = t('.success')
-      redirect_to root_path
+      redirect_to profile_path
     else
       render 'edit'
     end

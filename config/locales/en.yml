@@ -73,6 +73,10 @@ en:
       avatar: Avatar
       country: Country
       city: City
+      number: Phone number
+      bio: bio
+      about: About
+      joined: Joined
       submit: Save my profile
     create: 
       success: Profile was saved
