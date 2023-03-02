@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   private
 
   def require_profile
-    if current_user && !current_user.profile && !devise_controller?
+    if user_signed_in? && !current_user.profile && !devise_controller?
       redirect_to new_profile_path
     end
   end
