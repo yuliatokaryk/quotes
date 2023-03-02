@@ -3,11 +3,11 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_one_attached :avatar
 
-  has_many :followers, through: :followers, source: :follower
-  has_many :following, through: :following, source: :following
+  has_many :follower_relationships, class_name: 'Follower', foreign_key: 'profile_id', dependent: :destroy
+  has_many :followers, through: :follower_relationships, source: :follower
 
-  has_many :follower_relationships, class_name: 'Follower', foreign_key: 'follower_id', dependent: :destroy
-  has_many :following_relationships, class_name: 'Following', foreign_key: 'following_id', dependent: :destroy
+  has_many :following_relationships, class_name: 'Following', foreign_key: 'profile_id', dependent: :destroy
+  has_many :following, through: :following_relationships, source: :following
 
   validates :first_name, presence: true
   validates :last_name, presence: true
