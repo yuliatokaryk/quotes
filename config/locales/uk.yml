@@ -62,6 +62,18 @@ uk:
     update:
       success: Цитата була оновлена
   profiles:
+    show:
+      edit: Редагувати мій профіль
+      follow: Стежити за користувачем
+    form:
+      first_name: Ім'я
+      last_name: Прізвище
+      nickname: Псевдонім
+      date_of_birth: Дата народження
+      avatar: Фото профілю
+      country: Країна
+      city: Місто
+      submit: Зберегти мій профіль
     create: 
       success: Профіль було створено
     update:

@@ -1,28 +1,44 @@
-<% if current_user.profile %>
-
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
+<div class="flex justify-center">
+  <div class="p-10 flex flex-col rounded-lg bg-white shadow-lg dark:bg-neutral-700 md:w-2/4 md:flex-row">
     <% if  @profile.avatar.attached? %>
-      <%= image_tag @profile.avatar, class:"w-full" %>
+      <%= image_tag @profile.avatar, class:"h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" %>
     <% else %>
-      <%= image_tag src="user.png" %>
+      <%= image_tag src="user.png", class:"h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" %>
     <% end %>
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2"><%= @profile.nickname %></div>
-        <p class="text-gray-700 text-base">
-          <%= @profile.full_name %><br>
-          <% if @profile.date_of_birth? %>
-            <%= @profile.date_of_birth %>
-          <% end %>
-        </p>
-      </div>
-      <div class="px-6 py-4">
-        <%= link_to t('profile.edit'), edit_profile_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-      </div>
+    <div class="flex flex-col justify-start p-6">
+      <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+        <%= @profile.nickname %>
+      </h3>
+      <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
+        <%= @profile.full_name %>
+      </h5>
+      <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+        This is a wider card with supporting text below as a natural
+        lead-in to additional content. This content is a little bit
+        longer.
+      </p>
+      <p class="text-xs text-neutral-500 dark:text-neutral-300">
+        Last updated 3 mins ago
+      </p>
+      <% if current_user == @profile.user %>
+        <%= link_to t('.edit'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                          style:"background: linear-gradient(
+                                                                              to right,
+                                                                              #979dac,
+                                                                              #7d8597,
+                                                                              #5c677d,
+                                                                              #33415c,
+                                                                              #001233);" %>
+      <% else %>
+        <%= link_to t('.follow'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                          style:"background: linear-gradient(
+                                                                              to right,
+                                                                              #979dac,
+                                                                              #7d8597,
+                                                                              #5c677d,
+                                                                              #33415c,
+                                                                              #001233);" %>
+      <% end %>
     </div>
   </div>
-
-<% else %>
-
-  <%= link_to t('profile.create'), new_profile_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-
-<% end %>
+</div>
