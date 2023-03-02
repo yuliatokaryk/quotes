@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: "quotes#index"
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :authors
   resources :books
   resources :quotes

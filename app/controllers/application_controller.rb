@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
+  before_action :require_profile
 
   include Pagy::Backend
   include Pundit::Authorization
@@ -15,6 +16,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def require_profile
+    if user_signed_in? && !current_user.profile && !devise_controller?
+      redirect_to new_profile_path
+    end
+  end
 
   def user_not_authorized
     flash[:warning] = "You are not authorized to perform this action."
