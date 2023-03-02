@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  before_save :remove_avatar
+  before_save :check_if_user_is_allowed_to_have_avatar
   belongs_to :user
   has_one_attached :avatar
 
@@ -11,9 +11,9 @@ class Profile < ApplicationRecord
 
   private
 
-  def remove_avatar
+  def check_if_user_is_allowed_to_have_avatar
     return unless user.role == 'user'
 
-    self.avatar = nil
+    avatar.purge
   end
 end
