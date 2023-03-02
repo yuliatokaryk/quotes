@@ -21,7 +21,8 @@ class QuotesController < ApplicationController
   def create
     @quote = Quote.new(quote_params)
     @quote.user = current_user
-    
+    @quote.state = 'approved' unless current_user.role == 'user'
+
     if @quote.save
       flash[:notice] = t('.success')
       redirect_to quotes_path
