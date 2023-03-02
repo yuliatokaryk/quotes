@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :authorize_access
+  skip_before_action :require_profile, only: [:new, :create]
 
   def show
   end
@@ -49,10 +50,9 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = current_user.profile
-  end 
+  end
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :nickname, :date_of_birth, :avatar)
   end
-
 end
