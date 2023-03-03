@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   skip_before_action :require_profile, only: [:new, :create]
 
   def index
-    @profiles = Profile.where.not(user: current_user)
+    @pagy, @profiles = pagy(Profile.where.not(user: current_user))
   end
 
   def show

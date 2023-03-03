@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
   before_action :authorize_access
 
   def index
-    @pagy, @quotes = pagy(Quote.where(state: 'approved').or(Quote.where(state: 'pending', user: current_user)))
+    @pagy, @quotes = pagy(Quote.where(state: 'approved').or(Quote.where(state: 'pending', user: current_user)), items: 10)
     @quotes = @quotes.order(created_at: :desc)
     @quote = Quote.new
   end
