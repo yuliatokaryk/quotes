@@ -86,6 +86,7 @@ uk:
       followings: Підписки
       followers: Підписники
     form:
+      must_fill: Що продовжити, заповніть всі поля з *
       first_name: Ім'я
       last_name: Прізвище
       nickname: Псевдонім

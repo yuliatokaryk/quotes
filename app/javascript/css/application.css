@@ -54,3 +54,8 @@
   background-color: #5C677D;
   @apply relative inline-flex items-center rounded-l-md px-2 py-2 text-sm font-medium focus:z-20;
 }
+
+.must_be::after {
+  content: "*";
+  color: red;
+}

@@ -14,11 +14,9 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
-    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{ |x| ['Russian Federation'].include? x }
   end
 
   def edit
-    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{ |x| ['Russian Federation'].include? x }
     @selected_country = @profile.country
   end
 
@@ -27,9 +25,9 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     if @profile.save
       flash[:notice] = t('.success')
-      redirect_to profile_path
+      redirect_to root_path
     else
-      render 'new'
+      redirect_to new_profile_path
     end
   end
 

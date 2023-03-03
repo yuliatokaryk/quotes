@@ -3,7 +3,7 @@
     <%= f.text_area :content, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", placeholder: t(".add_quote") %>
   </div>
   <div class="mb-2">
-    <%= f.grouped_collection_select :source_string, [Book, Author, User], :all, :model_name, :to_s, :source_data, {}, { :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
+    <%= f.grouped_collection_select :source_string, [Book, Author, Profile], :all, :model_name, :to_s, :source_data, {}, { :class => "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" } %>
   </div>
   <div>  
     <%= f.submit t('.post_quote'), class: "text-center inline-block py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full", 

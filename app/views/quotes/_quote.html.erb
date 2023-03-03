@@ -28,8 +28,8 @@
         <%= link_to quote.source.title, book_path(quote.source) %>  
       <% elsif quote.source_type == "Author" %>
         <%= link_to quote.source.full_name, profile_path(quote.source) %>
-      <% elsif quote.source_type == "User" %>
-        <%= link_to quote.source.profile.nickname, profile_path(quote.source.profile) %>
+      <% elsif quote.source_type == "Profile" %>
+        <%= link_to quote.source.nickname, profile_path(quote.source) %>
       <% end %>
     </h6>
     <% if quote.state == 'approved' %>
