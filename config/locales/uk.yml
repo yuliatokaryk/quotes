@@ -37,6 +37,8 @@ uk:
       success: Автора було збережено
     update:
       success: Автора було оновлено
+    form: 
+      submit: Додати автора
   books:
     book:
       show_book: Показати книгу
@@ -51,6 +53,8 @@ uk:
       success: Книгу було збережено
     update:
       success: Книгу було оновлено
+    form: 
+      submit: Додати книгу
   quotes:
     form: 
       add_quote: Додати нову цитату
@@ -99,6 +103,7 @@ uk:
   actions:
     submit: Підтвердти
   header:
+    users: Користувачі
     home: Головна
     quotes: Цитати
     books: Книги

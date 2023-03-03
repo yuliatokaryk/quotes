@@ -13,6 +13,26 @@
                       <%= image_tag src="user.png", class:"mx-auto w-40 my-5", alt: "avatar" %>
                     <% end %>
                 </div>
+                <% if current_user == @profile.user %>
+                  <div class="text-center mt-10">
+                    <%= link_to 'Add book', new_book_path, class: "text-center inline-block px-6 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3", 
+                                                                style:"background: linear-gradient(
+                                                                                    to right,
+                                                                                    #979dac,
+                                                                                    #7d8597,
+                                                                                    #5c677d,
+                                                                                    #33415c,
+                                                                                    #001233);" %>
+                    <%= link_to 'Add author', new_author_path, class: "text-center inline-block px-6 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3", 
+                                                                style:"background: linear-gradient(
+                                                                                    to right,
+                                                                                    #979dac,
+                                                                                    #7d8597,
+                                                                                    #5c677d,
+                                                                                    #33415c,
+                                                                                    #001233);" %>
+                  </div>
+                <% end %>
               </div>
             </div>
             <div class="lg:w-9/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none">
@@ -38,9 +58,6 @@
                     </div>
                   </div>
                 </div>
-                <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
-                  <%= t(".quotes_count") %>: <%= @quotes.count %>
-                </h5>
                 <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
                   <%= @profile.full_name %>
                 </h5>
@@ -68,19 +85,20 @@
                     <i class="fa-solid fa-address-card"></i> <%= @profile.first_name %>:</b> <%= @profile.bio %>
                   </p>
                 <% end %>
+                <% if current_user == @profile.user %>
+                  <%= link_to t('.edit'), edit_profile_path, class: "text-center inline-block px-6 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out mb-3", 
+                                                              style:"background: linear-gradient(
+                                                                                  to right,
+                                                                                  #979dac,
+                                                                                  #7d8597,
+                                                                                  #5c677d,
+                                                                                  #33415c,
+                                                                                  #001233);" %>
+                <% end %>
                 <p class="text-xs text-neutral-500 dark:text-neutral-300">
                   <%= t(".joined") %> <%= @profile.created_at %>
                 </p>
-                <% if current_user == @profile.user %>
-                  <%= link_to t('.edit'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
-                                                                    style:"background: linear-gradient(
-                                                                                        to right,
-                                                                                        #979dac,
-                                                                                        #7d8597,
-                                                                                        #5c677d,
-                                                                                        #33415c,
-                                                                                        #001233);" %>
-                <% else %>
+                <% unless current_user == @profile.user %>
                   <%= link_to t('.follow'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
                                                                     style:"background: linear-gradient(
                                                                                         to right,
@@ -93,10 +111,71 @@
                 <hr>
                 <% if current_user == @profile.user %>
                   <div class="flex justify-center">
-                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full my-3">
+                    <div class="block rounded-lg w-full my-10">
                       <%= render 'quotes/form' %>
                     </div>
                   </div>
+                <% end %>
+                <hr>
+                <% if @quotes.any? %>
+                  <% @quotes.each do |quote| %>
+                    <div class="flex justify-center">
+                      <div class="block p-6 rounded-lg shadow-lg bg-white w-full">
+                        <p class="text-gray-400 text-sm">
+                          <%= quote.created_at %>
+                        </p>
+                        <div class="flex justify-between">
+                          <h3 class="text-gray-700 text-lg leading-tight font-medium mb-2">
+                            @<%= link_to quote.user.profile.nickname, profile_path(quote.user.profile) %>
+                          </h3>
+                          <% if policy(quote).update? %>
+                            <div>
+                              <%= link_to edit_quote_path(quote) do %> 
+                                <i class="fa-regular fa-pen-to-square mr-2 text-gray-600"></i>
+                              <% end %>
+                              <%= link_to quote_path(quote), method: :delete do %> 
+                                <i class="fa-solid fa-trash text-gray-600"></i>
+                              <% end %>
+                            </div>
+                          <% end %>
+                        </div>
+                        <hr class="mb-2">
+                        <p class="text-gray-900 text-xl mb-6">
+                          <%= quote.content %>
+                        </p>
+                        <h6 class="text-gray-700 text-sm leading-tight font-medium mb-2">
+                          <%= t(".source") %>:
+                          <% if quote.source_type == "Book" %>
+                            <%= link_to quote.source.title, book_path(quote.source) %>  
+                          <% elsif quote.source_type == "Author" %>
+                            <%= link_to quote.source.full_name, profile_path(quote.source) %>
+                          <% elsif quote.source_type == "User" %>
+                            <%= link_to quote.source.profile.nickname, profile_path(quote.source.profile) %>
+                          <% end %>
+                        </h6>
+                        <% if quote.state == 'approved' %>
+                          <p class="text-gray-500 text-base mt-4">
+                            <%= quote.likes.count %> like(s)
+                          </p>
+                          <% if user_signed_in? %>
+                            <% if quote.liked_by?(current_user)  %>
+                              <%= button_to likes_path(quote_id: quote.id, page: params['page']), method: :delete do %>
+                                <i class="fa-solid fa-heart text-pink-600 text-xl"></i>
+                              <% end %>
+                            <% else %>
+                              <%= button_to likes_path(quote_id: quote.id, page: params['page']) do %> 
+                                <i class="fa-regular fa-heart text-pink-600 text-xl"></i>
+                              <% end %>
+                            <% end %>
+                          <% end %>
+                        <% else %>
+                          <p class="text-red-700 text-base mb-2">
+                            <%= t('.pending_quote') %>
+                          </p>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
                 <% end %>
               </div>
             </div>

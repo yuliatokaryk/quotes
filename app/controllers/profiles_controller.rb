@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
   before_action :authorize_access
   skip_before_action :require_profile, only: [:new, :create]
 
+  def index
+    @profiles = Profile.where.not(user: current_user)
+  end
+
   def show
     @quotes = Quote.where(state: 'approved', user: @profile.user)
     @quote = Quote.new
@@ -10,11 +14,11 @@ class ProfilesController < ApplicationController
 
   def new
     @profile = Profile.new
-    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{|x| ["Russian Federation"].include? x}
+    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{ |x| ['Russian Federation'].include? x }
   end
 
   def edit
-    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{|x| ["Russian Federation"].include? x}
+    @countries = ISO3166::Country.all.map(&:iso_short_name).reject{ |x| ['Russian Federation'].include? x }
     @selected_country = @profile.country
   end
 
@@ -54,7 +58,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
   end
 
   def profile_params

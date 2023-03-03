@@ -37,6 +37,8 @@ en:
       success: Author was saved
     update:
       success: Author was updated
+    form: 
+      submit: Add author
   books:
     book:
       show_book: Show book
@@ -51,6 +53,8 @@ en:
       success: Book was saved
     update:
       success: Book was updated
+    form: 
+      submit: Add book
   quotes:
     form: 
       add_quote: Add new quote
@@ -99,6 +103,7 @@ en:
   actions:
     submit: Submit
   header:
+    users: Users
     home: Home
     quotes: Quotes
     books: Books
