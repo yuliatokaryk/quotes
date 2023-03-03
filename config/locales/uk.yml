@@ -32,6 +32,7 @@ uk:
       edit_author: Редагувати автора
       delete_author: Видалити автора
       empty: Ще не додано жодного автора
+      add_author: Додати нового автора
     create:
       success: Автора було збережено
     update:
@@ -45,26 +46,37 @@ uk:
       edit_book: Редагувати книгу
       delete_book: Видалити книгу
       empty: Ще не додано жодної книги
+      add_book: Додати нову книгу
     create:
       success: Книгу було збережено
     update:
       success: Книгу було оновлено
   quotes:
+    form: 
+      add_quote: Додати нову цитату
+      add_source: Обрати джерело цитати
+      post_quote: опублікувати цитату
     quote:
       edit_quote: Редагувати цитату
       delete_quote: Видалити цитату
       show_quote: Показати цитату
       pending_quote: Цитата очікує на підтвердження адміністратором
+      source: Цитата належить
     index:
       empty: Ще не додано жодної цитати
     create:
       success: Цитата була опублікована
+      error: Цитата не опублікована. Переконайтеся, що ви заповнили поле з цитатою та джерелом.
     update:
       success: Цитата була оновлена
   profiles:
     show:
       edit: Редагувати мій профіль
       follow: Стежити за користувачем
+      quotes: Цитати
+      quotes_count: Цитат
+      followings: Підписки
+      followers: Підписники
     form:
       first_name: Ім'я
       last_name: Прізвище

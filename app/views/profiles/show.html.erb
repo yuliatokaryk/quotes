@@ -16,15 +16,37 @@
               </div>
             </div>
             <div class="lg:w-9/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none">
-              <div class="ttext-neutral-800 px-4 py-6 md:p-12 md:mx-6">
-                <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-                  @<%= @profile.nickname %>
-                </h3>
+              <div class="ttext-neutral-800 px-4 py-6 md:p-12 md:mx-6 w-full">
+                <div class="flex flex-wrap -mx-3 mb-6 mt-10">
+                  <div class="w-full md:w-1/2 px-3">
+                    <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                      @<%= @profile.nickname %>
+                    </h3>
+                  </div>
+                  <div class="w-full md:w-1/2 px-3">
+                    <div class="flex flex-wrap">
+                      <div class="w-full md:w-1/2 px-3">
+                        <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                          <%= t(".followings") %>: <%= @profile.followings.count %>
+                        </h3>
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                          <%= t(".followers") %>: <%= @profile.followers.count %>
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
+                  <%= t(".quotes_count") %>: <%= @quotes.count %>
+                </h5>
                 <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
                   <%= @profile.full_name %>
                 </h5>
                 <% if @profile.country.present? %>
-                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                  <p class="mb-4 text-base text-gray-700 dark:text-neutral-200">
+                    <i class="fa-solid fa-location-dot mr-2"></i>
                     <%= @profile.country %>
                     <% if @profile.city.present? %>
                       , <%= @profile.city %>
@@ -33,17 +55,17 @@
                 <% end %>
                 <% if @profile.date_of_birth.present? %>
                   <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                    <b><%= t(".date_of_birth") %>:</b> <%= @profile.date_of_birth %>
+                    <i class="fa-solid fa-cake-candles mr-2"></i> </b> <%= @profile.date_of_birth %>
                   </p>
                 <% end %>
                 <% if @profile.number.present? %>
                   <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                    <b><%= t(".number") %>:</b> <%= @profile.number %>
+                    <i class="fa-solid fa-phone mr-2"></i> <%= @profile.number %>
                   </p>
                 <% end %>
                 <% if @profile.bio.present? %>
                   <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                    <b><%= t(".about") %> <%= @profile.first_name %>:</b> <%= @profile.bio %>
+                    <i class="fa-solid fa-address-card"></i> <%= @profile.first_name %>:</b> <%= @profile.bio %>
                   </p>
                 <% end %>
                 <p class="text-xs text-neutral-500 dark:text-neutral-300">
@@ -67,6 +89,14 @@
                                                                                         #5c677d,
                                                                                         #33415c,
                                                                                         #001233);" %>
+                <% end %>
+                <hr>
+                <% if current_user == @profile.user %>
+                  <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full my-3">
+                      <%= render 'quotes/form' %>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             </div>

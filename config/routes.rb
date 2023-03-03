@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :authors
   resources :books
-  resources :quotes
+  resources :quotes, except: [:new, :show]
   resource :profile
   resource :likes, only: [:create, :destroy]
 

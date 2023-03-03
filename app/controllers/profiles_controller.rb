@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   skip_before_action :require_profile, only: [:new, :create]
 
   def show
+    @quotes = Quote.where(state: 'approved', user: @profile.user)
+    @quote = Quote.new
   end
 
   def new
