@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
   before_action :authorize_access
 

@@ -1,0 +1,29 @@
+<div class="p-4 mb-2 mx-auto w-full md:w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div class="flex">
+    <div>
+      <% if profile.avatar.attached? %>
+        <%= image_tag profile.avatar, class:"mx-auto w-20", alt: "avatar" %>
+      <% else %>
+        <%= image_tag src="user.png", class:"mx-auto w-20", alt: "avatar" %>
+      <% end %>
+    </div>
+    <div class="flex justify-between w-full">
+      <div>
+        <%= link_to profile_path(profile) do %>
+          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">@<%= profile.nickname %></h5>
+        <% end %>
+        <span class="text-sm text-gray-500 dark:text-gray-400"><%= profile.full_name %></span>
+      </div>
+      <div>
+        <%= link_to t('.follow'), profiles_path, class: " text-center px-4 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out", 
+                                                  style:"background: linear-gradient(
+                                                                      to right,
+                                                                      #979dac,
+                                                                      #7d8597,
+                                                                      #5c677d,
+                                                                      #33415c,
+                                                                      #001233);" %>
+      </div>
+    </div>
+  </div>
+</div>

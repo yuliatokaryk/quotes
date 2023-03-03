@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :authors
   resources :books
   resources :quotes, except: [:new, :show]
-  resource :profile
+  resources :profiles
   resource :likes, only: [:create, :destroy]
 
   namespace :admin do
