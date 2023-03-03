@@ -187,6 +187,11 @@
                       </div>
                     </div>
                   <% end %>
+                    <% if @pagy.pages > 1 %>
+    <div class="flex justify-center my-5">
+      <%== pagy_nav(@pagy, compact: true) %>
+    </div>
+  <% end %>
                 <% end %>
               </div>
             </div>

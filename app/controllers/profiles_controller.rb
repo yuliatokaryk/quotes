@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @quotes = Quote.where(state: 'approved', user: @profile.user)
+    @pagy, @quotes = pagy(Quote.where(state: 'approved', user: @profile.user), items: 5)
     @quote = Quote.new
   end
 
