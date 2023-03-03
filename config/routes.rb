@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :quotes, except: [:new, :show]
   resources :profiles
   resource :likes, only: [:create, :destroy]
+  resource :followers, only: [:create, :destroy]
 
   namespace :admin do
     resources :quotes, only: [:index, :destroy] do

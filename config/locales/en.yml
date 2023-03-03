@@ -74,9 +74,13 @@ en:
     update:
       success: Quote was update
   profiles:
+    profile:
+      follow: Follow
+      unfollow: Unfollow
     show:
       edit: Edit my profile
       follow: Follow user
+      unfollow: Unfollow user
       quotes: Quotes
       quotes_count: Quotes count
       followings: Followings

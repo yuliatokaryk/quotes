@@ -74,9 +74,13 @@ uk:
     update:
       success: Цитата була оновлена
   profiles:
+    profile:
+      follow: Стежити
+      unfollow: Відписатися
     show:
       edit: Редагувати мій профіль
       follow: Стежити за користувачем
+      unfollow: Відписатися від користувача
       quotes: Цитати
       quotes_count: Цитат
       followings: Підписки

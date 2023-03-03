@@ -69,21 +69,21 @@ ActiveRecord::Schema.define(version: 2023_03_02_164849) do
   end
 
   create_table "followers", force: :cascade do |t|
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.bigint "follower_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id"], name: "index_followers_on_follower_id"
-    t.index ["profile_id"], name: "index_followers_on_profile_id"
+    t.index ["user_id"], name: "index_followers_on_user_id"
   end
 
   create_table "followings", force: :cascade do |t|
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.bigint "following_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["following_id"], name: "index_followings_on_following_id"
-    t.index ["profile_id"], name: "index_followings_on_profile_id"
+    t.index ["user_id"], name: "index_followings_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -139,10 +139,10 @@ ActiveRecord::Schema.define(version: 2023_03_02_164849) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "authors", "users"
   add_foreign_key "books", "users"
-  add_foreign_key "followers", "profiles"
-  add_foreign_key "followers", "profiles", column: "follower_id"
-  add_foreign_key "followings", "profiles"
-  add_foreign_key "followings", "profiles", column: "following_id"
+  add_foreign_key "followers", "users"
+  add_foreign_key "followers", "users", column: "follower_id"
+  add_foreign_key "followings", "users"
+  add_foreign_key "followings", "users", column: "following_id"
   add_foreign_key "likes", "quotes"
   add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"

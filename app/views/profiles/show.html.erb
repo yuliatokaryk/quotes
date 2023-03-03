@@ -47,12 +47,12 @@
                     <div class="flex flex-wrap">
                       <div class="w-full md:w-1/2 px-3">
                         <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-                          <%= t(".followings") %>: <%= @profile.followings.count %>
+                          <%= t(".followings") %>: <%= @profile.user.followings.count %>
                         </h3>
                       </div>
                       <div class="w-full md:w-1/2 px-3">
                         <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
-                          <%= t(".followers") %>: <%= @profile.followers.count %>
+                          <%= t(".followers") %>: <%= @profile.user.followers.count %>
                         </h3>
                       </div>
                     </div>
@@ -99,14 +99,25 @@
                   <%= t(".joined") %> <%= @profile.created_at %>
                 </p>
                 <% unless current_user == @profile.user %>
-                  <%= link_to t('.follow'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
-                                                                    style:"background: linear-gradient(
-                                                                                        to right,
-                                                                                        #979dac,
-                                                                                        #7d8597,
-                                                                                        #5c677d,
-                                                                                        #33415c,
-                                                                                        #001233);" %>
+                  <% if @profile.user.followers.include?(current_user) %>
+                    <%= button_to t('.unfollow'), followers_path(user_id: @profile.user.id), method: :delete, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                                                            style:"background: linear-gradient(
+                                                                                                                to right,
+                                                                                                                #979dac,
+                                                                                                                #7d8597,
+                                                                                                                #5c677d,
+                                                                                                                #33415c,
+                                                                                                                #001233);" %>
+                  <% else %>
+                    <%= button_to t('.follow'), followers_path(user_id: @profile.user.id), class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                                                            style:"background: linear-gradient(
+                                                                                                                to right,
+                                                                                                                #979dac,
+                                                                                                                #7d8597,
+                                                                                                                #5c677d,
+                                                                                                                #33415c,
+                                                                                                                #001233);" %>
+                  <% end %>
                 <% end %>
                 <hr>
                 <% if current_user == @profile.user %>
