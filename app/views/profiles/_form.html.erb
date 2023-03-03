@@ -8,32 +8,74 @@
   </div>
 <% end %>
 
-<div class="w-full max-w-xs">
-    <%= form_with(model: @profile, url: profile_path, local:true) do |f| %>
-      <div class="mb-4">
-        <%= f.label :first_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.text_field :first_name, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %><br>
-      </div>
-      <div class="mb-4">
-        <%= f.label :last_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.text_field :last_name, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %><br>
-      </div>
-      <div class="mb-4">
-        <%= f.label :nickname, class: "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.text_field :nickname, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %><br>
-      </div>
-      <div class="mb-4">
-        <%= f.label :date_of_birth, class: "block text-gray-700 text-sm font-bold mb-2" %>
-        <%= f.date_field :date_of_birth, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %><br>
-      </div>
-      <% unless current_user.role == 'user' %>
-        <div class="mb-4">
-          <%= f.label t('profile.avatar') %>
-          <%= f.file_field :avatar %>
-        </div>
-      <% end %>
-      <div class="mb-4">      
-        <%= f.submit t('actions.submit'), class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-      </div>
-    <% end %>
-</div>
+
+<%= form_with(model: @profile, url: profile_path, local:true, class: 'mx-auto md:w-2/4 my-14') do |f| %>
+  <div class="text-center">
+    <%= image_tag("QS-logo", class: "mx-auto w-40 my-5", alt: "logo") %>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6 mt-10">
+    <div class="w-full md:w-1/2 px-3">
+      <%= f.label t('.first_name'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :first_name, class:"sappearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+      <%= f.label t('.last_name'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :last_name, class:"appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <%= f.label t('.nickname'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :nickname, class:"appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3">
+      <%= f.label t('.date_of_birth'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.date_field :date_of_birth, class:"sappearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+        <%= f.label t('.number'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+        <%= f.text_field :number, class:"sappearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-2">
+    <div class="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+      <%= f.label t('.country'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.select :country, options_for_select(@countries), { include_blank: true }, selected: @selected_country, class: "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+      <%= f.label t('.city'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_field :city, class:"appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <%= f.label t('.bio'), class: "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" %>
+      <%= f.text_area :bio, rows: 10, class:"appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+    </div>
+  </div>
+  <% unless current_user.role == 'user' %>
+    <div class="w-full">
+      <label class="sappearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-5 leading-tight focus:outline-none focus:bg-white">
+        <%= t(".avatar") %>
+        <span style="display:none;">
+          <%= f.file_field :avatar, id: "fileUploader"%>
+        </span>
+      </label>
+    </div>
+  <% end %>
+  <% if current_user.profile %>
+    <%= link_to t('profile.delete'), profile_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded" %>
+  <% end %>
+  <div class="mb-4">      
+    <%= f.submit t('.submit'), class: "inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                               style:"background: linear-gradient(
+                                                  to right,
+                                                  #979dac,
+                                                  #7d8597,
+                                                  #5c677d,
+                                                  #33415c,
+                                                  #001233);" %>
+  </div>
+<% end %>

@@ -1,3 +1,11 @@
+<% if user_signed_in? %>
+  <div class="flex justify-center">
+    <div class="block p-6 rounded-lg shadow-lg bg-white w-full my-3 mx-2 md:w-2/3 lg:w-1/2">
+      <%= render 'form' %>
+    </div>
+  </div>
+<% end %>
+
 <% if @quotes.any? %>
   <%= render @quotes %>
   <div class="flex justify-center my-5">

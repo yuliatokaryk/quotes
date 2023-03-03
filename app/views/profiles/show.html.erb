@@ -1,28 +1,108 @@
-<% if current_user.profile %>
-
-  <div class="max-w-sm rounded overflow-hidden shadow-lg">
-    <% if  @profile.avatar.attached? %>
-      <%= image_tag @profile.avatar, class:"w-full" %>
-    <% else %>
-      <%= image_tag src="user.png" %>
-    <% end %>
-    <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2"><%= @profile.nickname %></div>
-        <p class="text-gray-700 text-base">
-          <%= @profile.full_name %><br>
-          <% if @profile.date_of_birth? %>
-            <%= @profile.date_of_birth %>
-          <% end %>
-        </p>
-      </div>
-      <div class="px-6 py-4">
-        <%= link_to t('profile.edit'), edit_profile_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+<section class="h-full gradient-form md:h-screen">
+  <div class="container py-12 px-6 h-full">
+    <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+      <div class="xl:w-10/12">
+        <div class="block bg-white shadow-lg rounded-lg">
+          <div class="lg:flex lg:flex-wrap g-0">
+            <div class="lg:w-3/12 px-4 md:px-0">
+              <div class="md:p-12 md:mx-6">
+                <div class="text-center">
+                    <% if  @profile.avatar.attached? %>
+                      <%= image_tag @profile.avatar, class:"mx-auto w-40 my-5", alt: "avatar" %>
+                    <% else %>
+                      <%= image_tag src="user.png", class:"mx-auto w-40 my-5", alt: "avatar" %>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="lg:w-9/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none">
+              <div class="ttext-neutral-800 px-4 py-6 md:p-12 md:mx-6 w-full">
+                <div class="flex flex-wrap -mx-3 mb-6 mt-10">
+                  <div class="w-full md:w-1/2 px-3">
+                    <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                      @<%= @profile.nickname %>
+                    </h3>
+                  </div>
+                  <div class="w-full md:w-1/2 px-3">
+                    <div class="flex flex-wrap">
+                      <div class="w-full md:w-1/2 px-3">
+                        <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                          <%= t(".followings") %>: <%= @profile.followings.count %>
+                        </h3>
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <h3 class="mb-2 text-xl font-medium text-neutral-800 dark:text-neutral-50">
+                          <%= t(".followers") %>: <%= @profile.followers.count %>
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
+                  <%= t(".quotes_count") %>: <%= @quotes.count %>
+                </h5>
+                <h5 class="mb-2 text-lg font-medium text-neutral-800 dark:text-neutral-50">
+                  <%= @profile.full_name %>
+                </h5>
+                <% if @profile.country.present? %>
+                  <p class="mb-4 text-base text-gray-700 dark:text-neutral-200">
+                    <i class="fa-solid fa-location-dot mr-2"></i>
+                    <%= @profile.country %>
+                    <% if @profile.city.present? %>
+                      , <%= @profile.city %>
+                    <% end %>
+                  </p>
+                <% end %>
+                <% if @profile.date_of_birth.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <i class="fa-solid fa-cake-candles mr-2"></i> </b> <%= @profile.date_of_birth %>
+                  </p>
+                <% end %>
+                <% if @profile.number.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <i class="fa-solid fa-phone mr-2"></i> <%= @profile.number %>
+                  </p>
+                <% end %>
+                <% if @profile.bio.present? %>
+                  <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+                    <i class="fa-solid fa-address-card"></i> <%= @profile.first_name %>:</b> <%= @profile.bio %>
+                  </p>
+                <% end %>
+                <p class="text-xs text-neutral-500 dark:text-neutral-300">
+                  <%= t(".joined") %> <%= @profile.created_at %>
+                </p>
+                <% if current_user == @profile.user %>
+                  <%= link_to t('.edit'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                                    style:"background: linear-gradient(
+                                                                                        to right,
+                                                                                        #979dac,
+                                                                                        #7d8597,
+                                                                                        #5c677d,
+                                                                                        #33415c,
+                                                                                        #001233);" %>
+                <% else %>
+                  <%= link_to t('.follow'), edit_profile_path, class: "text-center inline-block mt-10 px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3", 
+                                                                    style:"background: linear-gradient(
+                                                                                        to right,
+                                                                                        #979dac,
+                                                                                        #7d8597,
+                                                                                        #5c677d,
+                                                                                        #33415c,
+                                                                                        #001233);" %>
+                <% end %>
+                <hr>
+                <% if current_user == @profile.user %>
+                  <div class="flex justify-center">
+                    <div class="block p-6 rounded-lg shadow-lg bg-white w-full my-3">
+                      <%= render 'quotes/form' %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
-<% else %>
-
-  <%= link_to t('profile.create'), new_profile_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
-
-<% end %>
+</section>

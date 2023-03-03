@@ -6,7 +6,7 @@ class AddFollowersAndFollowingToProfile < ActiveRecord::Migration[6.1]
       t.timestamps
     end
 
-    create_table :following do |t|
+    create_table :followings do |t|
       t.references :profile, foreign_key: true
       t.references :following, foreign_key: { to_table: :profiles }
       t.timestamps

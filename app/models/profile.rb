@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
   has_many :followers, through: :follower_relationships, source: :follower
 
   has_many :following_relationships, class_name: 'Following', foreign_key: 'profile_id', dependent: :destroy
-  has_many :following, through: :following_relationships, source: :following
+  has_many :followings, through: :following_relationships, source: :following
 
   validates :first_name, presence: true
   validates :last_name, presence: true

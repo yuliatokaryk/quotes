@@ -6,12 +6,6 @@ class QuotesController < ApplicationController
   def index
     @pagy, @quotes = pagy(Quote.where(state: 'approved').or(Quote.where(state: 'pending', user: current_user)))
     @quotes = @quotes.order(created_at: :desc)
-  end
-
-  def show
-  end
-
-  def new
     @quote = Quote.new
   end
 
@@ -27,7 +21,8 @@ class QuotesController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to quotes_path
     else
-      render 'new'
+      flash[:error] = t('.error')
+      redirect_to(request.referrer || root_path)
     end
   end
 

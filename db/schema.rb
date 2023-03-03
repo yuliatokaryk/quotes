@@ -77,13 +77,13 @@ ActiveRecord::Schema.define(version: 2023_03_02_164849) do
     t.index ["profile_id"], name: "index_followers_on_profile_id"
   end
 
-  create_table "following", force: :cascade do |t|
+  create_table "followings", force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "following_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["following_id"], name: "index_following_on_following_id"
-    t.index ["profile_id"], name: "index_following_on_profile_id"
+    t.index ["following_id"], name: "index_followings_on_following_id"
+    t.index ["profile_id"], name: "index_followings_on_profile_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -141,8 +141,8 @@ ActiveRecord::Schema.define(version: 2023_03_02_164849) do
   add_foreign_key "books", "users"
   add_foreign_key "followers", "profiles"
   add_foreign_key "followers", "profiles", column: "follower_id"
-  add_foreign_key "following", "profiles"
-  add_foreign_key "following", "profiles", column: "following_id"
+  add_foreign_key "followings", "profiles"
+  add_foreign_key "followings", "profiles", column: "following_id"
   add_foreign_key "likes", "quotes"
   add_foreign_key "likes", "users"
   add_foreign_key "profiles", "users"

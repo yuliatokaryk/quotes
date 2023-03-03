@@ -8,6 +8,11 @@ class User < ApplicationRecord
   has_many :quotes
   has_many :likes
   has_one :profile
+  has_many :quotes, as: :source
 
   enum role: { user: 0, superuser: 1, moderator: 2, admin: 3 }
+
+  def source_data
+    profile.nickname
+  end
 end
