@@ -16,7 +16,7 @@
       </div>
       <div>
         <% if profile.user.followers.include?(current_user) %>
-          <%= button_to t('.unfollow'), followers_path(user_id: profile.user.id), method: :delete, class: "text-center px-4 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out", 
+          <%= button_to t('.unfollow'), follows_path(following_id: profile.user.id), method: :delete, class: "text-center px-4 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out", 
                                                                                                   style:"background: linear-gradient(
                                                                                                                     to right,
                                                                                                                     #979dac,
@@ -25,7 +25,7 @@
                                                                                                                     #33415c,
                                                                                                                     #001233);" %>
         <% else %>
-          <%= button_to t('.follow'), followers_path(user_id: profile.user.id), class: "text-center px-4 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out", 
+          <%= button_to t('.follow'), follows_path(following_id: profile.user.id), class: "text-center px-4 py-2 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out", 
                                                                               style:"background: linear-gradient(
                                                                                                   to right,
                                                                                                   #979dac,
