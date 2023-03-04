@@ -8,9 +8,11 @@
 
 <% if @quotes.any? %>
   <%= render @quotes %>
-  <div class="flex justify-center my-5">
-    <%== pagy_nav(@pagy) %>
-  </div>
+  <% if @pagy.pages > 1 %>
+    <div class="flex justify-center my-5">
+      <%== pagy_nav(@pagy, compact: true) %>
+    </div>
+  <% end %>
 <% else %>
   <h1 class='text-center my-5 text-4xl'><%= t('.empty') %></h1>
 <% end %>
