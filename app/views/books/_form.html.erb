@@ -1,3 +1,4 @@
+<div class="bg-white py-10 px-8 md:px-16 w-full md:w-4/5 mx-auto border border-gray-200 rounded-lg shadow">
 <% if @book.errors.any? %>
   <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
     <ul class="list-disc">
@@ -8,7 +9,7 @@
   </div>
 <% end %>
 
-<%= form_with(model: @book, local:true, class: 'mx-auto md:w-2/4 my-14 px-2') do |f| %>
+<%= form_with(model: @book, local:true, class: 'mx-auto my-14 px-2') do |f| %>
   <div class="text-center">
     <%= image_tag("QS-logo", class: "mx-auto w-40 my-5", alt: "logo") %>
   </div>
@@ -38,7 +39,7 @@
       <%= f.text_field :year_of_publication, class:"appearance-none block w-full bg-gray-100 text-gray-700 border border-gray-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" %>
     </div>
   </div>
-  <%= f.submit t('.submit'), class: "inline-block px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-1/3 mb-3", 
+  <%= f.submit t('.submit'), class: "inline-block px-8 py-4 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full md:w-2/3 lg:w-1/3 mb-3", 
                             style:"background: linear-gradient(
                                                 to right,
                                                 #979dac,
@@ -47,3 +48,4 @@
                                                 #33415c,
                                                 #001233);" %>
 <% end %>
+</div>

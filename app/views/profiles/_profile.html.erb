@@ -1,4 +1,4 @@
-<div class="p-4 mb-2 mx-auto w-full md:w-2/3 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="p-4 mb-2 mx-auto w-full md:w-2/3 bg-white border border-gray-200 rounded-lg shadow">
   <div class="flex">
     <div>
       <% if profile.avatar.attached? %>
@@ -10,7 +10,7 @@
     <div class="flex justify-between w-full">
       <div>
         <%= link_to profile_path(profile) do %>
-          <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">@<%= profile.nickname %></h5>
+          <h5 class="mb-1 text-xl font-medium text-gray-900">@<%= profile.nickname %></h5>
         <% end %>
         <span class="text-sm text-gray-500 dark:text-gray-400"><%= profile.full_name %></span>
       </div>
