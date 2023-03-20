@@ -1,17 +1,11 @@
 class QuotesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
   before_action :set_quote, only: [:show, :edit, :update, :destroy]
   before_action :authorize_access
 
   def index
-    @pagy, @quotes = pagy(Quote.where(state: 'approved').or(Quote.where(state: 'pending', user: current_user)))
+    @pagy, @quotes = pagy(Quote.where(state: 'approved').or(Quote.where(state: 'pending', user: current_user)), items: 10)
     @quotes = @quotes.order(created_at: :desc)
-  end
-
-  def show
-  end
-
-  def new
     @quote = Quote.new
   end
 
@@ -27,7 +21,8 @@ class QuotesController < ApplicationController
       flash[:notice] = t('.success')
       redirect_to quotes_path
     else
-      render 'new'
+      flash[:error] = t('.error')
+      redirect_to(request.referrer || root_path)
     end
   end
 

@@ -1,9 +1,21 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2"><%= @book.title %></div>
-    <p class="text-gray-700 text-base"><%= @book.year_of_publication %></p>
-    <p class="text-gray-700 text-base"><%= @book.wikipedia_url %></p>
-    <p class="text-gray-700 text-base"><%= @book.goodreads_url %></p>
-    <p class="text-gray-700 text-base"><%= @book.author.full_name %></p>
+<div class="p-4 mb-2 mx-auto w-full md:w-2/3 bg-white border border-gray-200 rounded-lg shadow">
+  <div class="flex justify-between">
+    <h2 class="mb-1 text-xl font-medium text-gray-900"><%= @book.title %></h2>
+    <% if policy(@book).update? %>
+      <div>
+        <%= link_to edit_book_path(@book) do %> 
+          <i class="fa-regular fa-pen-to-square mr-2 text-gray-600"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+  <h2 class="mb-1 text-lg font-medium text-gray-900"><%= @book.author.full_name %></h2>
+  <hr>
+  <div class="my-4">
+  <p class="text-lg text-gray-800">Year of publication: <%= @book.year_of_publication %></p>
+  <p class="text-lg text-gray-800">Find on wikipedia: <%= @book.wikipedia_url %></p>
+  <p class="text-lg text-gray-800">Find on goodreads: <%= @book.goodreads_url %></p>
+  </div>
+  <hr>
+  <p class="text-sm text-gray-500">Added: <%= @book.created_at %> <%= @book.user.profile.nickname %></p>
 </div>

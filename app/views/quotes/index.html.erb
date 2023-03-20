@@ -1,8 +1,18 @@
+<% if user_signed_in? %>
+  <div class="flex justify-center">
+    <div class="block p-6 rounded-lg shadow-lg bg-white w-full my-3 mx-2 md:w-2/3 lg:w-1/2">
+      <%= render 'form' %>
+    </div>
+  </div>
+<% end %>
+
 <% if @quotes.any? %>
   <%= render @quotes %>
-  <div class="flex justify-center my-5">
-    <%== pagy_nav(@pagy) %>
-  </div>
+  <% if @pagy.pages > 1 %>
+    <div class="flex justify-center my-5">
+      <%== pagy_nav(@pagy, compact: true) %>
+    </div>
+  <% end %>
 <% else %>
   <h1 class='text-center my-5 text-4xl'><%= t('.empty') %></h1>
 <% end %>

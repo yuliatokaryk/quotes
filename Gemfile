@@ -69,3 +69,5 @@ gem "pundit", "~> 2.2"
 gem "state_machines-activerecord"
 
 gem "devise-i18n", "~> 1.10"
+
+gem "countries", "~> 5.3"

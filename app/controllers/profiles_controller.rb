@@ -3,7 +3,13 @@ class ProfilesController < ApplicationController
   before_action :authorize_access
   skip_before_action :require_profile, only: [:new, :create]
 
+  def index
+    @pagy, @profiles = pagy(Profile.where.not(user: current_user))
+  end
+
   def show
+    @pagy, @quotes = pagy(Quote.where(state: 'approved', user: @profile.user), items: 5)
+    @quote = Quote.new
   end
 
   def new
@@ -11,6 +17,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @selected_country = @profile.country
   end
 
   def create
@@ -18,16 +25,16 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     if @profile.save
       flash[:notice] = t('.success')
-      redirect_to profile_path
+      redirect_to root_path
     else
-      render 'new'
+      redirect_to new_profile_path
     end
   end
 
   def update
     if @profile.update(profile_params)
       flash[:notice] = t('.success')
-      redirect_to root_path
+      redirect_to profile_path
     else
       render 'edit'
     end
@@ -49,7 +56,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
   end
 
   def profile_params

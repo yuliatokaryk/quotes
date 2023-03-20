@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :authors
   resources :books
-  resources :quotes
-  resource :profile
+  resources :quotes, except: [:new, :show]
+  resources :profiles
   resource :likes, only: [:create, :destroy]
+  resource :follows, only: [:create, :destroy]
 
   namespace :admin do
     resources :quotes, only: [:index, :destroy] do

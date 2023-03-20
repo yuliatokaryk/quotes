@@ -1,9 +1,20 @@
-<div class="max-w-sm rounded overflow-hidden shadow-lg">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2"><%= @author.full_name %></div>
-    <p class="text-gray-700 text-base"><%= @author.date_of_birth %></p>
-    <p class="text-gray-700 text-base"><%= @author.wikipedia_url %></p>
-    <p class="text-gray-700 text-base"><%= @author.goodreads_url %></p>
-    <p class="text-gray-700 text-base"><%= @author.user_id %></p>
+<div class="p-4 mb-2 mx-auto w-full md:w-2/3 bg-white border border-gray-200 rounded-lg shadow">
+  <div class="flex justify-between">
+    <h2 class="mb-1 text-xl font-medium text-gray-900"><%= @author.full_name %></h2>
+    <% if policy(@author).update? %>
+      <div>
+        <%= link_to edit_author_path(@author) do %> 
+          <i class="fa-regular fa-pen-to-square mr-2 text-gray-600"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+  <hr>
+  <div class="my-4">
+  <p class="text-lg text-gray-800">Date of birth: <%= @author.date_of_birth %></p>
+  <p class="text-lg text-gray-800">Find on wikipedia: <%= @author.wikipedia_url %></p>
+  <p class="text-lg text-gray-800">Find on goodreads: <%= @author.goodreads_url %></p>
+  </div>
+  <hr>
+  <p class="text-sm text-gray-500">Added: <%= @author.created_at %> <%= @author.user.profile.nickname %></p>
 </div>

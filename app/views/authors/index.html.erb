@@ -2,13 +2,11 @@
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
     <%= render @authors %>
   </div>
-  <div class="flex justify-center my-5">
-    <%== pagy_nav(@pagy) %>
-  </div>
+  <% if @pagy.pages > 1 %>
+    <div class="flex justify-center my-5">
+      <%== pagy_nav(@pagy, compact: true) %>
+    </div>
+  <% end %>
 <% else %>
   <h1 class='text-center my-5 text-4xl'><%= t('.empty') %></h1>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to t('.add_new_author'), new_author_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
