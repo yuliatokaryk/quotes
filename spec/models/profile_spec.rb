@@ -28,6 +28,5 @@ RSpec.describe Profile, :type => :model do
       subject.nickname = nil
       expect(subject).to_not be_valid
     end
-    
   end
 end
