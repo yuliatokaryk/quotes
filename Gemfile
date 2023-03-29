@@ -71,3 +71,5 @@ gem "state_machines-activerecord"
 gem "devise-i18n", "~> 1.10"
 
 gem "countries", "~> 5.3"
+
+gem "rubocop", "~> 1.48"
