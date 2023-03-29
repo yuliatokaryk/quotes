@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Like Model
 class Profile < ApplicationRecord
   before_save :check_if_user_is_allowed_to_have_avatar
   belongs_to :user
