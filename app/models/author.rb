@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Author Model
 class Author < ApplicationRecord
   belongs_to :user
   has_many :books

@@ -29,7 +29,7 @@ class ApplicationPolicy
   end
 
   def edit?
-    return update?
+   update?
   end
 
   def destroy?

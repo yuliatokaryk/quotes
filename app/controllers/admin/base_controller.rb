@@ -1,9 +1,14 @@
-class Admin::BaseController < ApplicationController
-  before_action :authorize_user
+# frozen_string_literal: true
 
-  def authorize_user
-    return if current_user.admin? || current_user.moderator?
+module Admin
+  # Admin Base Controller
+  class BaseController < ApplicationController
+    before_action :authorize_user
 
-    redirect_to root_path
+    def authorize_user
+      return if current_user.admin? || current_user.moderator?
+
+      redirect_to root_path
+    end
   end
 end

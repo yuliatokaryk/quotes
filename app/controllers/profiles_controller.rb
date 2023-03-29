@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
+# Profiles Controller
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: %i[show edit update destroy]
   before_action :authorize_access
-  skip_before_action :require_profile, only: [:new, :create]
+  skip_before_action :require_profile, only: %i[new create]
 
   def index
     @pagy, @profiles = pagy(Profile.where.not(user: current_user))

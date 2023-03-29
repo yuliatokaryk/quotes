@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Quote Model
 class Quote < ApplicationRecord
   belongs_to :user
   belongs_to :source, polymorphic: true
