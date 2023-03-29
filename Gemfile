@@ -73,3 +73,7 @@ gem "devise-i18n", "~> 1.10"
 gem "countries", "~> 5.3"
 
 gem "rubocop", "~> 1.48"
+
+gem "rubocop-rails", "~> 2.18"
+
+gem "rubocop-performance", "~> 1.16"
