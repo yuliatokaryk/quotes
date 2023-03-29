@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookPolicy < ApplicationPolicy
   attr_reader :user, :record
 
