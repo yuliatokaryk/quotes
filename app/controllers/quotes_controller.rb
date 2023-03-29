@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# Quotes Controller
 class QuotesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_quote, only: [:show, :edit, :update, :destroy]
+  before_action :set_quote, only: %i[show edit update destroy]
   before_action :authorize_access
 
   def index
@@ -9,8 +12,7 @@ class QuotesController < ApplicationController
     @quote = Quote.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @quote = Quote.new(quote_params)

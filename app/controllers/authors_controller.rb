@@ -1,20 +1,21 @@
+# frozen_string_literal: true
+
+# Authors Controller
 class AuthorsController < ApplicationController
-  before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :set_author, only: %i[show edit update destroy]
   before_action :authorize_access
 
   def index
     @pagy, @authors = pagy(Author.all)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @author = Author.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @author = Author.new(author_params)

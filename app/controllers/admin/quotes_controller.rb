@@ -1,19 +1,24 @@
-class Admin::QuotesController < Admin::BaseController
-  before_action :set_quote, only: [:approve]
+# frozen_string_literal: true
 
-  def pending
-    @pagy, @quotes = pagy(@quotes = Quote.where(state: 'pending'))
-  end
+module Admin
+  # Admin Quotes Controller
+  class QuotesController < Admin::BaseController
+    before_action :set_quote, only: [:approve]
 
-  def approve
-    @quote.approve!
+    def pending
+      @pagy, @quotes = pagy(@quotes = Quote.where(state: 'pending'))
+    end
 
-    redirect_to admin_pending_quotes_path
-  end
+    def approve
+      @quote.approve!
 
-  private
+      redirect_to admin_pending_quotes_path
+    end
 
-  def set_quote
-    @quote ||= Quote.find(params[:quote_id])
+    private
+
+    def set_quote
+      @quote ||= Quote.find(params[:quote_id])
+    end
   end
 end

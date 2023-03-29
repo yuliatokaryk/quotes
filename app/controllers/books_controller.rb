@@ -1,20 +1,21 @@
+# frozen_string_literal: true
+
+# Books Controller
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: %i[show edit update destroy]
   before_action :authorize_access
 
-  def index   
+  def index
     @pagy, @books = pagy(Book.all)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @book = Book.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @book = Book.new(book_params)
@@ -51,7 +52,7 @@ class BooksController < ApplicationController
       authorize Book
     end
   end
-  
+
   def set_book
     @book = Book.find(params[:id])
   end

@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Follows Controller
 class FollowsController < ApplicationController
-  before_action :set_follow, only: [:destroy]
+  before_action :follow, only: [:destroy]
 
   def create
     Follow.create(follower_id: current_user.id, following_id: params['following_id'])
@@ -15,7 +18,7 @@ class FollowsController < ApplicationController
 
   private
 
-  def set_follow
+  def follow
     @follow ||= Follow.find_by(follower_id: current_user.id, following_id: params['following_id'])
   end
 end
