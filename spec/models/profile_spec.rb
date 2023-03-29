@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Profile, :type => :model do
+RSpec.describe Profile do
   subject { build(:profile) }
 
   describe 'associations' do

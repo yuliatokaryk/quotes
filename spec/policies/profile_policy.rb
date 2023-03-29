@@ -6,7 +6,6 @@ describe ProfilePolicy do
   subject { ProfilePolicy }
 
   permissions :edit?, :update?, :destroy? do
-    
     let(:user_1) { create(:user) }
     let(:user_2) { create(:user) }
     let(:profile) { create(:profile, user: user_1) }

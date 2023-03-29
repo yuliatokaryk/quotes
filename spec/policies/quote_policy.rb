@@ -6,7 +6,6 @@ describe QuotePolicy do
   subject { QuotePolicy }
 
   permissions :edit?, :update?, :destroy? do
-    
     let(:user_1) { create(:user) }
     let(:user_2) { create(:user) }
     let(:quote) { create(:quote, user: user_1) }

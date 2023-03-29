@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Author, :type => :model do
+RSpec.describe Author do
   subject { build(:author) }
 
   describe 'associations' do
