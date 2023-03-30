@@ -29,10 +29,10 @@ class AuthorPolicy < ApplicationPolicy
   end
 
   def edit?
-   update?
+    update?
   end
 
   def destroy?
-   update?
+    update?
   end
 end

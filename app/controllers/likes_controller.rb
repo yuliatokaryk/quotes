@@ -7,13 +7,13 @@ class LikesController < ApplicationController
   def create
     Like.create(user_id: current_user.id, quote_id: params['quote_id'])
 
-    redirect_to(request.referrer || root_path)
+    redirect_to(request.referer || root_path)
   end
 
   def destroy
     @like.destroy
 
-    redirect_to(request.referrer || root_path)
+    redirect_to(request.referer || root_path)
   end
 
   private

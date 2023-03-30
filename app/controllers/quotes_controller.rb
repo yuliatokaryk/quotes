@@ -3,7 +3,7 @@
 # Quotes Controller
 class QuotesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_quote, only: %i[show edit update destroy]
+  before_action :set_quote, only: %i[edit update destroy]
   before_action :authorize_access
 
   def index
@@ -24,7 +24,7 @@ class QuotesController < ApplicationController
       redirect_to quotes_path
     else
       flash[:error] = t('.error')
-      redirect_to(request.referrer || root_path)
+      redirect_to(request.referer || root_path)
     end
   end
 
