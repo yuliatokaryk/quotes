@@ -3,7 +3,7 @@
 module Admin
   # Admin Quotes Controller
   class QuotesController < Admin::BaseController
-    before_action :set_quote, only: [:approve]
+    before_action :quote, only: [:approve]
 
     def pending
       @pagy, @quotes = pagy(@quotes = Quote.where(state: 'pending'))
@@ -17,7 +17,7 @@ module Admin
 
     private
 
-    def set_quote
+    def quote
       @quote ||= Quote.find(params[:quote_id])
     end
   end
