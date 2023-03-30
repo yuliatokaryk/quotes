@@ -17,12 +17,12 @@ RSpec.describe Quote do
 
     it 'is not valid when content has less that 20 characters' do
       subject.content = 'Less than 20 char'
-      expect(subject).to_not be_valid
+      expect(subject).not_to be_valid
     end
 
     it 'is not valid without content' do
       subject.content = ''
-      expect(subject).to_not be_valid
+      expect(subject).not_to be_valid
     end
   end
 end

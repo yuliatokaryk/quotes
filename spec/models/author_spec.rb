@@ -16,7 +16,7 @@ RSpec.describe Author do
 
     it 'is not valid without a first_name' do
       subject.first_name = nil
-      expect(subject).to_not be_valid
+      expect(subject).not_to be_valid
     end
   end
 
